@@ -1,0 +1,50 @@
+<html xmlns="http://www.w3.org/1999/xhtml" ng-app="CTS">
+
+<head>
+    <title>CTS</title>
+    <link href="~/lib/bootstrap/dist/css/bootstrap.min.css" rel="stylesheet" />
+    <link href="~/lib/bootstrap/dist/css/bootstrap-theme.min.css" rel="stylesheet" />
+    <link href="~/css/myStyles.css" rel="stylesheet" />
+    <base href="/" />
+</head>
+
+<body ng-controller="AccountController as account">
+    <div ng-controller="IndexController as controller">
+
+        <div class="container" ng-include="'/html/header.html'"></div>
+
+        <div class="container">
+            <ui-view></ui-view>
+        </div>
+
+        <div class="container" ng-include="'/html/footer.html'"></div>
+
+    </div>
+
+    <!-- Library Files -->
+    <script src="~/lib/angular/angular.js"></script>
+    <script src="~/lib/angular-resource/angular-resource.js"></script>
+    <script src="~/lib/angular-animate/angular-animate.js"></script>
+    <script src="~/lib/angular-touch/angular-touch.js"></script>
+    <script src="~/lib/angular-bootstrap/ui-bootstrap-tpls.js"></script>
+    <script src="~/lib/angular-ui-router/release/angular-ui-router.js"></script>
+
+    <!-- App Files-->
+    <script src="~/ngapp/app.js"></script>
+    <script src="~/ngapp/services/services.js"></script>
+
+    <!-- AngularJS Controller Files-->
+    <script src="~/ngapp/controllers/controllers.js"></script>
+    <script src="~/ngApp/controllers/indexController.js"></script>
+    <script src="~/ngApp/controllers/applicationUsersController.js"></script>
+    <script src="~/ngApp/controllers/receiptsController.js"></script>
+    <script src="~/ngApp/controllers/productsController.js"></script>
+    <script src="~/ngApp/controllers/itemsController.js"></script>
+
+    <!-- Security -->
+    <script src="~/ngapp/controllers/accountcontroller.js"></script>
+    <script src="~/ngapp/services/accountservice.js"></script>
+
+</body>
+
+</html>

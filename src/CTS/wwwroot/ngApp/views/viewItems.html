@@ -1,0 +1,13 @@
+﻿<h2>Items</h2>
+<p>
+    {{controller.message}}
+</p>
+
+<ul>
+    <li ng-repeat="item in controller.items track by $index">
+        {{item.Id}} - 
+        {{item.receiptId}} - 
+        {{item.productId}} - 
+        {{item.unitsPurchased}}
+    </li>
+</ul>
