@@ -1,0 +1,25 @@
+﻿<h2>Profile</h2>
+<p>
+    {{controller.message}}
+</p>
+
+<ul>
+    <li ng-repeat="item in controller.applicationUsers track by $index">
+        {{firstName}} - 
+        {{lastName}} - 
+        {{nickname}} - 
+        {{birthday}} - 
+
+        {{mailStreet1}} - 
+        {{mailStreet2}} - 
+        {{mailCity}} - 
+        {{mailState}} - 
+        {{mailZip}} - 
+
+        {{physicalStreet1}} - 
+        {{physicalStreet2}} - 
+        {{physicalCity}} - 
+        {{physicalState}} - 
+        {{physicalZip}}
+    </li>
+</ul>
