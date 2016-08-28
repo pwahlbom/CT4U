@@ -1,0 +1,37 @@
+﻿<h1>CT4U</h1>
+
+<div>
+    <a ui-sref="home">Home</a> /
+    <a ui-sref="secret">Secret</a> /
+    <a ui-sref="about">About</a>
+
+    <!--Show these menu items if the user IS NOT logged in-->
+    <span ng-show="!account.isLoggedIn()">
+        <br />
+        <a ui-sref="login">Login</a> /
+        <a ui-sref="register">Register</a>
+    </span>
+
+    <!--Show these menu items if the user IS logged in-->
+    <span ng-show="account.isLoggedIn()">
+        <br />
+        <a ui-sref="receipts">Receipts</a> /
+        <a ui-sref="products">Products</a> /
+        <a ui-sref="items">Items</a> /
+        <a ui-sref="profile">Profile</a> /
+        <a ui-sref="home" ng-click="account.logout()">Logout</a>
+    </span>
+
+
+
+    <div ng-show="account.isLoggedIn()">
+        [{{account.getUserName()}}]
+    </div>
+</div>
+
+<br />
+<p>HEADER</p>
+
+{{controller.headerMessage}}
+<br />
+<hr class="style-one" />
