@@ -1,6 +1,6 @@
 ﻿namespace CT4U.Controllers {
     export class ProfileController {
-        public message = 'Hello from the PROFILE page!';
+        public message = 'Hello from the PROFILE controller!';
 
         public applicationUsers;
         public applicationUser;

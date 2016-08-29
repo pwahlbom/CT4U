@@ -1,6 +1,6 @@
 ﻿namespace CT4U.Controllers {
     export class ReportController {
-        public message = 'Hello from the REPORTS page!';
+        public message = 'Hello from the REPORTS controller!';
 
         public reports;
         public report;

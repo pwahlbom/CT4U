@@ -33,6 +33,8 @@ namespace CT4U.Controllers {
     angular.module('CT4U').controller('AccountController', AccountController);
 
     export class LoginController {
+        public message = 'Hello from the LOGIN controller!';
+
         public loginUser;
         public validationMessages;
 
@@ -48,6 +50,8 @@ namespace CT4U.Controllers {
     }
 
     export class RegisterController {
+        public message = 'Hello from the REGISTER controller!';
+
         public registerUser;
         public validationMessages;
 

@@ -1,9 +1,10 @@
 ﻿<h2>Receipts</h2>
 <p>
-    {{controller.message}}
+    {{receipts_controller.message}}
 </p>
+<br />
 
-<form ng-submit="controller.addReceipt(model)">
+<form ng-submit="receipts_controller.addReceipt(model)">
     <input ng-model="model.applicationUserId" placeholder="applicationUserId" />
     <input ng-model="model.purchaseDate" placeholder="purchaseDate" />
     <input ng-model="model.note" placeholder="note" />
@@ -16,7 +17,7 @@
         <th>Note</th>
         <th>Details</th>
     </tr>
-    <tr ng-repeat="receipt in controller.receipts track by $index">
+    <tr ng-repeat="receipt in receipts_controller.receipts track by $index">
         <td>{{receipt.purchaseDate}}</td>
         <td>{{receipt.note}}</td>
         <td><a ui-sref="details({id: receipt.id})">Details</a></td>

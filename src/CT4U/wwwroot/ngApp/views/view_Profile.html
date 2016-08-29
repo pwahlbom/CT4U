@@ -1,7 +1,8 @@
 ﻿<h2>Profile</h2>
 <p>
-    {{controller.message}}
+    {{profile_controller.message}}
 </p>
+<br />
 
 <table class="table table-striped">
     <tr class="row">
@@ -20,7 +21,7 @@
         <th>State</th>
         <th>Zip</th>
     </tr>
-    <tr class="row" ng-repeat="applicationUser in controller.applicationUsers track by $index">
+    <tr class="row" ng-repeat="applicationUser in profile_controller.applicationUsers track by $index">
         <td>{{applicationUser.firstName}}</td>
         <td>{{applicationUser.lastName}}</td>
         <td>{{applicationUser.nickname}}</td>

@@ -1,6 +1,6 @@
 ﻿namespace CT4U.Controllers {
     export class ProductsController {
-        public message = 'Hello from the PRODUCTS page!';
+        public message = 'Hello from the PRODUCTS controller!';
 
         public products;
         public prodcut;

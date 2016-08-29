@@ -1,7 +1,8 @@
 ﻿<h2>Products</h2>
 <p>
-    {{controller.message}}
+    {{products_controller.message}}
 </p>
+<br />
 
 <table class="table table-striped">
     <tr>
@@ -9,7 +10,7 @@
         <th>Measurement Units</th>
         <th>Notes</th>
     </tr>
-    <tr ng-repeat="product in controller.products track by $index">
+    <tr ng-repeat="product in products_controller.products track by $index">
         <td>{{product.name}}</td>
         <td>{{product.measurementUnits}}</td>
         <td>{{product.notes}}</td>

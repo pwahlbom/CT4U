@@ -9,17 +9,20 @@
 </head>
 
 <body ng-controller="AccountController as account">
-    <div ng-controller="IndexController as controller">
+    <div ng-controller="IndexController as index_controller">
 
         <div class="container" ng-include="'/html/header.html'"></div>
+
+        <div class="container">
+            {{index_controller.indexMessage}}
+            <br />
+        </div>
 
         <div class="container">
             <ui-view></ui-view>
         </div>
 
         <div class="container" ng-include="'/html/footer.html'"></div>
-
-    </div>
 
     <!-- Library Files -->
     <script src="~/lib/angular/angular.js"></script>

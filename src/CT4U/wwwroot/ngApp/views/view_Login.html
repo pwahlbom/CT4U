@@ -1,8 +1,10 @@
 <h2>Login</h2>
 <p>
-    {{controller.message}}
+    {{login_controller.message}}
 </p>
-<fieldset>
+<br />
+
+<!--<fieldset>
     <legend>Login with a Social Provider</legend>
 
     <ul>
@@ -11,25 +13,38 @@
         </li>
     </ul>
 
-</fieldset>
+</fieldset>-->
 
 <fieldset>
-    <legend>Login Locally</legend>
+    <legend>Login</legend>
     <ul>
-        <li ng-repeat="error in controller.validationMessages">
+        <li ng-repeat="error in login_controller.validationMessages">
             {{error}}
         </li>
     </ul>
 
-    <form ng-submit="controller.login()">
-        <div>
-            <label>Email:</label>
-            <input ng-model="controller.loginUser.email" />
-        </div>
-        <div>
-            <label>Password:</label>
-            <input ng-model="controller.loginUser.password" />
-        </div>
+    <form ng-submit="login_controller.login()">
+
+        <table>
+            <tr>
+                <td>
+                    <label>Email:</label>
+                </td>
+                <td>
+                    <input ng-model="login_controller.loginUser.email" />
+                </td>
+            </tr>
+            <tr>
+                <td>
+                    <label>Password:</label>
+                </td>
+                <td>
+                    <input ng-model="login_controller.loginUser.password" />
+                </td>
+            </tr>
+        </table>
+        <br />
+
         <input type="submit" value="Login" />
         <a href="/register">Register</a>
     </form>

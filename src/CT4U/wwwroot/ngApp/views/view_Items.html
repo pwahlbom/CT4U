@@ -1,7 +1,8 @@
 ﻿<h2>Items</h2>
 <p>
-    {{controller.message}}
+    {{items_controller.message}}
 </p>
+<br />
 
 <table class="table table-striped">
     <tr>
@@ -10,7 +11,7 @@
         <th>productId</th>
         <th>Units Purchased</th>
     </tr>
-    <tr ng-repeat="item in controller.items track by $index">
+    <tr ng-repeat="item in items_controller.items track by $index">
         <td>{{item.id}}</td>
         <td>{{item.receiptId}}</td>
         <td>{{item.productId}}</td>
