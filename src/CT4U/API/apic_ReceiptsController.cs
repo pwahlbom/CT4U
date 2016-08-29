@@ -1,14 +1,13 @@
 ﻿using CT4U.Models;
 using CT4U.Services;
 using Microsoft.AspNetCore.Mvc;
+using System;
 using System.Collections.Generic;
 using System.Linq;
-
-// For more information on enabling Web API for empty projects, visit http://go.microsoft.com/fwlink/?LinkID=397860
+using System.Threading.Tasks;
 
 namespace CT4U.API
 {
-
     [Route("api/[controller]")]
     public class ReceiptsController : Controller
     {

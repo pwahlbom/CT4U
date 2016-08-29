@@ -1,46 +1,46 @@
 ﻿namespace CT4U.Controllers {
-    export class productsController {
-        public message = 'Hello from the PRODUCTS page!';
+    export class ItemsController {
+        public message = 'Hello from the ITEMS page!';
 
-        public products;
-        public prodcut;
+        public items;
+        public item;
 
         constructor(public $http: ng.IHttpService, public $state: ng.ui.IStateService, public $stateParams: ng.ui.IStateParamsService) {
-            this.getProducts();
+            this.getItems();
         }
 
         // CREATE ----------------------------------------------------------------------------------------------------
-        public addProduct(object) {
-            this.$http.post('api/products', object).then((response) => {
+        public addItem(object) {
+            this.$http.post('api/items', object).then((response) => {
                 this.$state.reload();
             });
         }
 
         // READ ----------------------------------------------------------------------------------------------------
         // Read all
-        public getProducts() {
-            this.$http.get('api/products').then((response) => {
-                this.products = response.data;
+        public getItems() {
+            this.$http.get('api/items').then((response) => {
+                this.items = response.data;
             });
         }
 
         // Read one
-        public getProduct() {
-            this.$http.get(`api/products/${this.$stateParams['id']}`).then((res) => {
-                this.prodcut = res.data;
+        public getItem() {
+            this.$http.get(`api/items /${this.$stateParams['id']}`).then((response) => {
+                this.item = response.data;
             });
         }
 
         // UPDATE ----------------------------------------------------------------------------------------------------
-        public editProduct() {
-            this.$http.put(`api/products/${this.prodcut.id}`, this.prodcut).then((res) => {
+        public editItem() {
+            this.$http.put(`api/items /${this.item.id}`, this.item).then((response) => {
                 this.$state.reload();
             });
         }
 
         // DELETE ----------------------------------------------------------------------------------------------------
         public delete() {
-            this.$http.delete(`api/products/${this.prodcut.id}`).then((res) => {
+            this.$http.delete(`api/items /${this.item.id}`).then((response) => {
                 this.$state.go('home');
             });
         }

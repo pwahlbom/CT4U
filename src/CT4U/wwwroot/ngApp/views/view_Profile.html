@@ -1,0 +1,39 @@
+﻿<h2>Profile</h2>
+<p>
+    {{controller.message}}
+</p>
+
+<table class="table table-striped">
+    <tr class="row">
+        <th>First Name</th>
+        <th>Last Name</th>
+        <th>Nickname</th>
+        <th>Birthday</th>
+        <th>Mail Street1</th>
+        <th>Street2</th>
+        <th>City</th>
+        <th>State</th>
+        <th>Zip</th>
+        <th>Physical Street1</th>
+        <th>Street2</th>
+        <th>City</th>
+        <th>State</th>
+        <th>Zip</th>
+    </tr>
+    <tr class="row" ng-repeat="applicationUser in controller.applicationUsers track by $index">
+        <td>{{applicationUser.firstName}}</td>
+        <td>{{applicationUser.lastName}}</td>
+        <td>{{applicationUser.nickname}}</td>
+        <td>{{applicationUser.birthday}}</td>
+        <td>{{applicationUser.mailStreet1}}</td>
+        <td>{{applicationUser.mailStreet2}}</td>
+        <td>{{applicationUser.mailCity}}</td>
+        <td>{{applicationUser.mailState}}</td>
+        <td>{{applicationUser.mailZip}}</td>
+        <td>{{applicationUser.physicalStreet1}}</td>
+        <td>{{applicationUser.physicalStreet2}}</td>
+        <td>{{applicationUser.physicalCity}}</td>
+        <td>{{applicationUser.physicalState}}</td>
+        <td>{{applicationUser.physicalZip}}</td>
+    </tr>
+</table>

@@ -1,0 +1,19 @@
+﻿<h2>Items</h2>
+<p>
+    {{controller.message}}
+</p>
+
+<table class="table table-striped">
+    <tr>
+        <th>Id</th>
+        <th>receiptId</th>
+        <th>productId</th>
+        <th>Units Purchased</th>
+    </tr>
+    <tr ng-repeat="item in controller.items track by $index">
+        <td>{{item.id}}</td>
+        <td>{{item.receiptId}}</td>
+        <td>{{item.productId}}</td>
+        <td>{{item.unitsPurchased}}</td>
+    </tr>
+</table>

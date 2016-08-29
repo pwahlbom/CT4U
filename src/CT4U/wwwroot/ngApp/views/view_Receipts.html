@@ -14,10 +14,11 @@
     <tr>
         <th>Purchase Date</th>
         <th>Note</th>
+        <th>Details</th>
     </tr>
-    <tr ng-repeat="item in controller.receipts track by $index">
-        <td>{{item.purchaseDate}}</td>
-        <td>{{item.note}}</td>
-        <td><a ui-sref="details({id: item.id})">Details</a></td>
+    <tr ng-repeat="receipt in controller.receipts track by $index">
+        <td>{{receipt.purchaseDate}}</td>
+        <td>{{receipt.note}}</td>
+        <td><a ui-sref="details({id: receipt.id})">Details</a></td>
     </tr>
 </table>

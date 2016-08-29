@@ -9,67 +9,73 @@ namespace CT4U {
         $stateProvider
             .state('home', {
                 url: '/',
-                templateUrl: '/ngApp/views/viewHome.html',
+                templateUrl: '/ngApp/views/view_Home.html',
                 controller: CT4U.Controllers.HomeController,
                 controllerAs: 'controller'
             })
             .state('secret', {
                 url: '/secret',
-                templateUrl: '/ngApp/views/secret.html',
+                templateUrl: '/ngApp/views/view_Secret.html',
                 controller: CT4U.Controllers.SecretController,
                 controllerAs: 'controller'
             })
             .state('receipts', {
                 url: '/receipts',
-                templateUrl: '/ngApp/views/viewReceipts.html',
-                controller: CT4U.Controllers.receiptsController,
+                templateUrl: '/ngApp/views/view_Receipts.html',
+                controller: CT4U.Controllers.ReceiptsController,
                 controllerAs: 'controller'
             })
             .state('products', {
                 url: '/products',
-                templateUrl: '/ngApp/views/viewProducts.html',
-                controller: CT4U.Controllers.productsController,
+                templateUrl: '/ngApp/views/view_Products.html',
+                controller: CT4U.Controllers.ProductsController,
                 controllerAs: 'controller'
             })
             .state('items', {
                 url: '/items',
-                templateUrl: '/ngApp/views/viewItems.html',
-                controller: CT4U.Controllers.itemsController,
+                templateUrl: '/ngApp/views/view_Items.html',
+                controller: CT4U.Controllers.ItemsController,
+                controllerAs: 'controller'
+            })
+            .state('report', {
+                url: '/report',
+                templateUrl: '/ngApp/views/view_Report.html',
+                controller: CT4U.Controllers.ReportController,
                 controllerAs: 'controller'
             })
             .state('profile', {
                 url: '/profile',
-                templateUrl: '/ngApp/views/viewProfile.html',
-                controller: CT4U.Controllers.applicationUsersController,
+                templateUrl: '/ngApp/views/view_Profile.html',
+                controller: CT4U.Controllers.ProfileController,
                 controllerAs: 'controller'
             })
             .state('login', {
                 url: '/login',
-                templateUrl: '/ngApp/views/login.html',
+                templateUrl: '/ngApp/views/view_Login.html',
                 controller: CT4U.Controllers.LoginController,
                 controllerAs: 'controller'
             })
             .state('register', {
                 url: '/register',
-                templateUrl: '/ngApp/views/register.html',
+                templateUrl: '/ngApp/views/view_Register.html',
                 controller: CT4U.Controllers.RegisterController,
                 controllerAs: 'controller'
             })
             .state('externalRegister', {
                 url: '/externalRegister',
-                templateUrl: '/ngApp/views/externalRegister.html',
+                templateUrl: '/ngApp/views/view_ExternalRegister.html',
                 controller: CT4U.Controllers.ExternalRegisterController,
                 controllerAs: 'controller'
             }) 
             .state('about', {
                 url: '/about',
-                templateUrl: '/ngApp/views/viewAbout.html',
+                templateUrl: '/ngApp/views/view_About.html',
                 controller: CT4U.Controllers.AboutController,
                 controllerAs: 'controller'
             })
             .state('notFound', {
                 url: '/notFound',
-                templateUrl: '/ngApp/views/viewNotFound.html'
+                templateUrl: '/ngApp/views/view_NotFound.html'
             });
 
         // Handle request for non-existent route

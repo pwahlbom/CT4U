@@ -1,5 +1,5 @@
 ﻿namespace CT4U.Controllers {
-    export class receiptsController {
+    export class ReceiptsController {
         public message = 'Hello from the RECEIPTS page!';
 
         public receipts;
