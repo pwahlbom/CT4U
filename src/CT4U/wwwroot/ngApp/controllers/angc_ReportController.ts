@@ -39,7 +39,7 @@
         }
 
         // DELETE ----------------------------------------------------------------------------------------------------
-        public delete() {
+        public deleteReport() {
             this.$http.delete(`api/reports/${this.report.id}`).then((res) => {
                 this.$state.go('home');
             });

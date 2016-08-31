@@ -15,17 +15,30 @@ namespace CT4U.Services
         }
 
         // CREATE ----------------------------------------------------------------------------------------------------
-        public void AddReceipt(Receipt rcpt)
+        public void AddReceipt(Receipt rcpt, string UserName)
         {
+            var UserId = (from u in _repo.GetUsers()
+                          where u.UserName == UserName
+                          select u).FirstOrDefault().Id;
+            rcpt.ApplicationUserId = UserId;
             _repo.Add(rcpt);
             _repo.SaveChanges();
         }
 
         // READ ----------------------------------------------------------------------------------------------------
         // Read all
-        public IList<Receipt> GetReceipts()
+        public IList<Receipt> GetReceipts(string UserName)
         {
-            return _repo.List().ToList();
+            if (UserName.Length > 0)
+            {
+                var receipts = _repo.List();
+                return (from r in receipts
+                        where r.ApplicationUser.UserName == UserName
+                        select r).ToList();
+            } else
+            {
+                return _repo.List().ToList();
+            }
         }
 
         // Read one

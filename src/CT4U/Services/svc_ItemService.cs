@@ -26,6 +26,14 @@ namespace CT4U.Services
             return _repo.Find(id);
         }
 
+        public IList<Item> GetReceiptsItems(int receiptId)
+        {
+            var items = _repo.List();
+            return (from i in items
+                    where i.ReceiptId == receiptId
+                    select i).ToList();
+        }
+
         public void AddItem(Item value)
         {
             _repo.Add(value);

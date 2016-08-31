@@ -8,12 +8,13 @@ using System.Threading.Tasks;
 
 namespace CT4U.API
 {
-    [Route("api/[controller]")]
-    public class ReceiptsController : Controller
-    {
-        private ReceiptService _service;
 
-        public ReceiptsController(ReceiptService service)
+    [Route("api/[controller]")]
+    public class UsersController : Controller
+    {
+        private UserService _service;
+
+        public UsersController(UserService service)
         {
             _service = service;
         }
@@ -21,42 +22,47 @@ namespace CT4U.API
         // CREATE ----------------------------------------------------------------------------------------------------
         // POST api/values
         [HttpPost]
-        public void Post([FromBody]Receipt value)
+        public void Post([FromBody]ApplicationUser value)
         {
-            _service.AddReceipt(value, User.Identity.Name);
+            _service.AddUser(value);
         }
 
         // READ ----------------------------------------------------------------------------------------------------
-        // Read all
         // GET: api/values
         [HttpGet]
-        public IEnumerable<Receipt> GetReceipts()
+        public IEnumerable<ApplicationUser> GetUsers()
         {
-            return _service.GetReceipts(User.Identity.Name);
+            return _service.GetUsers();
         }
 
-        // Read one
         // GET api/values/5
         [HttpGet("{id}")]
-        public Receipt Get(int id)
+        public ApplicationUser Get(string id)
         {
-            return _service.FindReceipt(id);
+            return _service.FindUser(id);
+        }
+
+        // GET api/values/findloggedinuser
+        [HttpGet("findloggedinuser")]
+        public ApplicationUser FindLoggedInUser()
+        {
+            return _service.FindLoggedInUser(User.Identity.Name);
         }
 
         // UPDATE ----------------------------------------------------------------------------------------------------
         // PUT api/values/5
         [HttpPut("{id}")]
-        public void Put([FromBody]Receipt value)
+        public void Put([FromBody]ApplicationUser value)
         {
-            _service.UpdateReceipt(value);
+            _service.UpdateUser(value);
         }
 
         // DELETE ----------------------------------------------------------------------------------------------------
         // DELETE api/values/5
         [HttpDelete("{id}")]
-        public void Delete(int id)
+        public void Delete(string id)
         {
-            _service.DeleteReceipt(id);
+            _service.DeleteUser(id);
         }
     }
 }

@@ -18,5 +18,6 @@ namespace CT4U.Models
 
         public int Id { get; set; }
         public int UnitsPurchased { get; set; }
+        public string Note { get; set; }
     }
 }

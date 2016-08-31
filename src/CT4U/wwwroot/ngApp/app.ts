@@ -37,7 +37,7 @@ namespace CT4U {
                 controllerAs: 'products_controller'
             })
             .state('items', {
-                url: '/items',
+                url: '/items/receiptid/:receiptid',
                 templateUrl: '/ngApp/views/view_Items.html',
                 controller: CT4U.Controllers.ItemsController,
                 controllerAs: 'items_controller'

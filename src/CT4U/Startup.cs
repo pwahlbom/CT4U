@@ -55,13 +55,13 @@ namespace CT4U
             services.AddTransient<ISmsSender, AuthMessageSender>();
 
             //Add Dependancies
-            services.AddScoped<ApplicationUserRepository>();
+            services.AddScoped<UserRepository>();
             services.AddScoped<ReceiptRepository>();
             services.AddScoped<ProductRepository>();
             services.AddScoped<ItemRepository>();
 
             //Add Services
-            services.AddScoped<ApplicationUserService>();
+            services.AddScoped<UserService>();
             services.AddScoped<ReceiptService>();
             services.AddScoped<ProductService>();
             services.AddScoped<ItemService>();

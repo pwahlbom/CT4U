@@ -27,6 +27,7 @@ namespace CT4U.Infrastructure
             orig.ProductId = model.ProductId;
             orig.Id = model.Id;
             orig.UnitsPurchased = model.UnitsPurchased;
+            orig.Note = model.Note;
         }
     }
 }

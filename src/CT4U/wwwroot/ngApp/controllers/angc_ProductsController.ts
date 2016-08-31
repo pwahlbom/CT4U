@@ -3,7 +3,11 @@
         public message = 'Hello from the PRODUCTS controller!';
 
         public products;
-        public prodcut;
+        public product;
+
+        public strAction = "";
+        public blnShowEdit = false;
+        public blnShowDelete = false;
 
         constructor(public $http: ng.IHttpService, public $state: ng.ui.IStateService, public $stateParams: ng.ui.IStateParamsService) {
             this.getProducts();
@@ -27,22 +31,60 @@
         // Read one
         public getProduct() {
             this.$http.get(`api/products/${this.$stateParams['id']}`).then((res) => {
-                this.prodcut = res.data;
+                this.product = res.data;
             });
         }
 
         // UPDATE ----------------------------------------------------------------------------------------------------
         public editProduct() {
-            this.$http.put(`api/products/${this.prodcut.id}`, this.prodcut).then((res) => {
+            this.$http.put(`api/products/${this.product.id}`, this.product).then((res) => {
                 this.$state.reload();
             });
         }
 
         // DELETE ----------------------------------------------------------------------------------------------------
-        public delete() {
-            this.$http.delete(`api/products/${this.prodcut.id}`).then((res) => {
-                this.$state.go('home');
+        public deleteProduct() {
+            this.$http.delete(`api/products/${this.product.id}`).then((res) => {
+                this.$state.reload();
+                //this.$state.go('home');
             });
+        }
+
+        // MISCELLANEOUS ----------------------------------------------------------------------------------------------------
+        public showEdit(currentProduct) {
+            this.strAction = "UPDATE";
+            this.blnShowEdit = true;
+            this.blnShowDelete = !this.blnShowEdit;
+            var tempProduct = {
+                id: currentProduct.id,
+                name: currentProduct.name,
+                measurementUnits: currentProduct.measurementUnits,
+                note: currentProduct.note
+            }
+
+            this.product = tempProduct;
+        }
+
+        public showDelete(currentProduct) {
+            this.strAction = "DELETE";
+            this.blnShowEdit = false;
+            this.blnShowDelete = !this.blnShowEdit;
+            var tempProduct = {
+                id: currentProduct.id,
+                name: currentProduct.name,
+                measurementUnits: currentProduct.measurementUnits,
+                note: currentProduct.note
+            }
+
+            this.product = tempProduct;
+        }
+
+        public hideEdit() {
+            this.blnShowEdit = false;
+        }
+
+        public hideDelete() {
+            this.blnShowDelete = false;
         }
     }
 }

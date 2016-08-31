@@ -1,36 +1,33 @@
-﻿<h1>Consumables Tracking for You!</h1>
+﻿<h1>Consumables Tracking 4U!</h1>
 
 <div>
     <a ui-sref="home">Home</a> /
-    <a ui-sref="secret">Secret</a> /
-    <a ui-sref="about">About</a>
-
-    <!--Show these menu items if the user IS NOT logged in-->
-    <span ng-show="!account.isLoggedIn()">
-        <br />
-        <a ui-sref="login">Login</a> /
-        <a ui-sref="register">Register</a>
-    </span>
+    <a ui-sref="secret">Secret</a> / 
+    <a ui-sref="about">About</a> / 
+    <a ng-show="!account.isLoggedIn()" ui-sref="login">Login</a>
+    <a ng-show="account.isLoggedIn()" ui-sref="home" ng-click="account.logout()">Logout</a>
 
     <!--Show these menu items if the user IS logged in-->
     <span ng-show="account.isLoggedIn()">
         <br />
         <a ui-sref="receipts">Receipts</a> /
-        <a ui-sref="products">Products</a> /
-        <a ui-sref="items">Items</a> /
-        <a ui-sref="report">Report</a> /
-        <a ui-sref="profile">Profile</a> /
-        <a ui-sref="home" ng-click="account.logout()">Logout</a>
+        <a ui-sref="report">Report</a>
+    </span>
+
+    <span ng-show="account.isLoggedIn()">
+        <br />
+        <a ui-sref="products">Products</a>
     </span>
 
     <div ng-show="account.isLoggedIn()">
-        [{{account.getUserName()}}]
+        <a ui-sref="profile">{{account.getUserName()}}</a>
     </div>
+
 </div>
-
 <br />
-<p>HEADER</p>
 
+<p>HEADER</p>
 {{index_controller.headerMessage}}
 <br />
+
 <hr class="style-one" />

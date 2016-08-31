@@ -6,7 +6,7 @@
         public item;
 
         constructor(public $http: ng.IHttpService, public $state: ng.ui.IStateService, public $stateParams: ng.ui.IStateParamsService) {
-            this.getItems();
+            this.getReceiptsItems();
         }
 
         // CREATE ----------------------------------------------------------------------------------------------------
@@ -26,21 +26,32 @@
 
         // Read one
         public getItem() {
-            this.$http.get(`api/items /${this.$stateParams['id']}`).then((response) => {
+            this.$http.get(`api/items/${this.$stateParams['id']}`).then((response) => {
                 this.item = response.data;
+            });
+        }
+
+        // Get receipts items
+        public getReceiptsItems() {
+
+
+            console.log("ReceiptID: " + this.$stateParams['receiptid']);
+
+            this.$http.get(`api/items/receiptid/{${this.$stateParams['receiptid']}`).then((response) => {
+                this.items = response.data;
             });
         }
 
         // UPDATE ----------------------------------------------------------------------------------------------------
         public editItem() {
-            this.$http.put(`api/items /${this.item.id}`, this.item).then((response) => {
+            this.$http.put(`api/items/${this.item.id}`, this.item).then((response) => {
                 this.$state.reload();
             });
         }
 
         // DELETE ----------------------------------------------------------------------------------------------------
-        public delete() {
-            this.$http.delete(`api/items /${this.item.id}`).then((response) => {
+        public deleteItem() {
+            this.$http.delete(`api/items/${this.item.id}`).then((response) => {
                 this.$state.go('home');
             });
         }

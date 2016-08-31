@@ -22,7 +22,7 @@ namespace CT4U.Infrastructure
             // Add aditional updateable fields here
             orig.Name = model.Name;
             orig.MeasurementUnits = model.MeasurementUnits;
-            orig.Notes = model.Notes;
+            orig.Note = model.Note;
         }
     }
 }

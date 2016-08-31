@@ -4,37 +4,25 @@
 </p>
 <br />
 
-<table class="table table-striped">
-    <tr class="row">
-        <th>First Name</th>
-        <th>Last Name</th>
-        <th>Nickname</th>
-        <th>Birthday</th>
-        <th>Mail Street1</th>
-        <th>Street2</th>
-        <th>City</th>
-        <th>State</th>
-        <th>Zip</th>
-        <th>Physical Street1</th>
-        <th>Street2</th>
-        <th>City</th>
-        <th>State</th>
-        <th>Zip</th>
-    </tr>
-    <tr class="row" ng-repeat="applicationUser in profile_controller.applicationUsers track by $index">
-        <td>{{applicationUser.firstName}}</td>
-        <td>{{applicationUser.lastName}}</td>
-        <td>{{applicationUser.nickname}}</td>
-        <td>{{applicationUser.birthday}}</td>
-        <td>{{applicationUser.mailStreet1}}</td>
-        <td>{{applicationUser.mailStreet2}}</td>
-        <td>{{applicationUser.mailCity}}</td>
-        <td>{{applicationUser.mailState}}</td>
-        <td>{{applicationUser.mailZip}}</td>
-        <td>{{applicationUser.physicalStreet1}}</td>
-        <td>{{applicationUser.physicalStreet2}}</td>
-        <td>{{applicationUser.physicalCity}}</td>
-        <td>{{applicationUser.physicalState}}</td>
-        <td>{{applicationUser.physicalZip}}</td>
-    </tr>
-</table>
+<form ng-submit="profile_controller.editUser()">
+    <label>ID</label><input ng-model="profile_controller.user.id" /><br />
+    <label>User Name</label><input ng-model="profile_controller.user.userName" /><br />
+    <label>Password</label><input ng-model="profile_controller.user.passwordHash" /><br />
+    <label>First Name</label><input ng-model="profile_controller.user.firstName" /><br />
+    <label>Last Name</label><input ng-model="profile_controller.user.lastName" /><br />
+    <label>Nickname</label><input ng-model="profile_controller.user.nickname" /><br />
+    <label>Birthday</label><input ng-model="profile_controller.user.birthday" /><br />
+    <label>Mail Street1</label><input ng-model="profile_controller.user.mailStreet1" /><br />
+    <label>Street2</label><input ng-model="profile_controller.user.mailStreet2" /><br />
+    <label>City</label><input ng-model="profile_controller.user.mailCity" /><br />
+    <label>State</label><input ng-model="profile_controller.user.mailState" /><br />
+    <label>Zip</label><input ng-model="profile_controller.user.mailZip" /><br />
+    <label>Physical Street1</label><input ng-model="profile_controller.user.physicalStreet1" /><br />
+    <label>Street2</label><input ng-model="profile_controller.user.physicalStreet2" /><br />
+    <label>City</label><input ng-model="profile_controller.user.physicalCity" /><br />
+    <label>State</label><input ng-model="profile_controller.user.physicalState" /><br />
+    <label>Zip</label><input ng-model="profile_controller.user.physicalZip" /><br />
+    <br />
+
+    <input type="submit" />
+</form>

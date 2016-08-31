@@ -1,4 +1,5 @@
 ﻿using CT4U.Data;
+using CT4U.Models;
 using System;
 using System.Linq;
 
@@ -19,9 +20,16 @@ namespace CT4U.Infrastructure
             _db.Set<T>().Add(entity);
         }
 
+        // READ ----------------------------------------------------------------------------------------------------
         public IQueryable<T> List()
         {
             return _db.Set<T>();
+        }
+
+        // Read the users table
+        public IQueryable<ApplicationUser> GetUsers()
+        {
+            return _db.Users;
         }
 
         // DELETE ----------------------------------------------------------------------------------------------------
@@ -30,6 +38,7 @@ namespace CT4U.Infrastructure
             _db.Set<T>().Remove(entity);
         }
 
+        // MISCELLANEOUS ----------------------------------------------------------------------------------------------------
         public void SaveChanges()
         {
             _db.SaveChanges();

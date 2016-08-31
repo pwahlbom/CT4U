@@ -13,6 +13,7 @@ namespace CT4U.API
     [Route("api/[controller]")]
     public class SecretsController : Controller
     {
+        // READ ----------------------------------------------------------------------------------------------------
         // GET: api/values
         [HttpGet]
         [Authorize(Policy = "AdminOnly")]

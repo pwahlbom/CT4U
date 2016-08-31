@@ -4,15 +4,111 @@
 </p>
 <br />
 
+<!-- CREATE ------------------------------------------------------------------------------------------------------>
+<h4>CREATE</h4>
+<form ng-submit="products_controller.addProduct(addProduct)">
+    <table class="table table-striped">
+        <tr>
+            <th>Name</th>
+            <th>Measurement Units</th>
+            <th>Note</th>
+            <th>Submit</th>
+        </tr>
+        <tr>
+        <tr>
+            <td>
+                <input ng-model="addProduct.name" placeholder="Name" />
+            </td>
+            <td>
+                <input ng-model="addProduct.measurementUnits" placeholder="Measurement Units" />
+            </td>
+            <td>
+                <input ng-model="addProduct.note" placeholder="Note" />
+            </td>
+            <td>
+                <input type="submit" />
+            </td>
+        </tr>
+    </table>
+</form>
+
+<!-- READ ------------------------------------------------------------------------------------------------------>
+<h4>READ</h4>
 <table class="table table-striped">
     <tr>
         <th>Name</th>
         <th>Measurement Units</th>
-        <th>Notes</th>
+        <th>Note</th>
+        <th>Edit</th>
+        <th>Delete</th>
     </tr>
     <tr ng-repeat="product in products_controller.products track by $index">
         <td>{{product.name}}</td>
         <td>{{product.measurementUnits}}</td>
-        <td>{{product.notes}}</td>
+        <td>{{product.note}}</td>
+        <td><button ng-click="products_controller.showEdit(product)">Edit</button></td>
+        <td><button ng-click="products_controller.showDelete(product)">Delete</button></td>
     </tr>
 </table>
+
+<!-- UPDATE ------------------------------------------------------------------------------------------------------>
+<div ng-show="products_controller.blnShowEdit">
+    <h4 class="keeptogether">{{products_controller.strAction}}</h4>
+    <button ng-click="products_controller.hideEdit()">Cancel</button>
+
+    <form ng-submit="products_controller.editProduct()">
+        <table class="table table-striped">
+            <tr>
+                <th ng-show="false">ID</th>
+                <th>Name</th>
+                <th>Measurement Units</th>
+                <th>Note</th>
+                <th>Submit</th>
+            </tr>
+            <tr>
+                <td ng-show="false">
+                    <input ng-model="products_controller.product.id" placeholder="ID" />
+                </td>
+                <td>
+                    <input ng-model="products_controller.product.name" placeholder="Name" />
+                </td>
+                <td>
+                    <input ng-model="products_controller.product.measurementUnits" placeholder="Measurement Units" />
+                </td>
+                <td>
+                    <input ng-model="products_controller.product.note" placeholder="Note" />
+                </td>
+                <td>
+                    <input type="submit" />
+                </td>
+            </tr>
+        </table>
+    </form>
+</div>
+
+<!-- DELETE ------------------------------------------------------------------------------------------------------>
+<div ng-show="products_controller.blnShowDelete">
+    <h4 class="keeptogether">{{products_controller.strAction}}</h4>
+    <button ng-click="products_controller.hideDelete()">Cancel</button>
+
+    <form ng-submit="products_controller.deleteProduct()">
+        <table class="table table-striped">
+            <tr>
+                <th ng-show="false">ID</th>
+                <th>Name</th>
+                <th>Measurement Units</th>
+                <th>Note</th>
+                <th>Submit</th>
+            </tr>
+            <tr>
+                <td ng-show="false">{{products_controller.product.id}}</td>
+                <td>{{products_controller.product.name}}</td>
+                <td>{{products_controller.product.measurementUnits}}</td>
+                <td>{{products_controller.product.note}}</td>
+                <td>
+                    <input type="submit" />
+                </td>
+            </tr>
+        </table>
+    </form>
+</div>

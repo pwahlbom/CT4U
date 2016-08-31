@@ -18,6 +18,15 @@ namespace CT4U.API
             _service = service;
         }
 
+        // CREATE ----------------------------------------------------------------------------------------------------
+        // POST api/values
+        [HttpPost]
+        public void Post([FromBody]Product value)
+        {
+            _service.AddProduct(value);
+        }
+
+        // READ ----------------------------------------------------------------------------------------------------
         // GET: api/values
         [HttpGet]
         public IEnumerable<Product> GetProducts()
@@ -32,13 +41,7 @@ namespace CT4U.API
             return _service.FindProduct(id);
         }
 
-        // POST api/values
-        [HttpPost]
-        public void Post([FromBody]Product value)
-        {
-            _service.AddProduct(value);
-        }
-
+        // UPDATE ----------------------------------------------------------------------------------------------------
         // PUT api/values/5
         [HttpPut("{id}")]
         public void Put([FromBody]Product value)
@@ -46,6 +49,7 @@ namespace CT4U.API
             _service.UpdateProduct(value);
         }
 
+        // DELETE ----------------------------------------------------------------------------------------------------
         // DELETE api/values/5
         [HttpDelete("{id}")]
         public void Delete(int id)

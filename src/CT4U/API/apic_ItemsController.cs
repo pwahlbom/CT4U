@@ -19,6 +19,7 @@ namespace CT4U.API
             _service = service;
         }
 
+        // READ ----------------------------------------------------------------------------------------------------
         // GET: api/values
         [HttpGet]
         public IEnumerable<Item> GetItems()
@@ -33,6 +34,15 @@ namespace CT4U.API
             return _service.FindItem(id);
         }
 
+        // Get receipt's items
+        [HttpGet("receiptid/{receiptid}")]
+        public IEnumerable<Item> GetReceiptsItems(int receiptid)
+        {
+            //HERE PLEASE HELP
+            return _service.GetReceiptsItems(receiptid);
+        }
+
+        // CREATE ----------------------------------------------------------------------------------------------------
         // POST api/values
         [HttpPost]
         public void Post([FromBody]Item value)
@@ -40,6 +50,7 @@ namespace CT4U.API
             _service.AddItem(value);
         }
 
+        // UPDATE ----------------------------------------------------------------------------------------------------
         // PUT api/values/5
         [HttpPut("{id}")]
         public void Put([FromBody]Item value)
@@ -47,6 +58,7 @@ namespace CT4U.API
             _service.UpdateItem(value);
         }
 
+        // DELETE ----------------------------------------------------------------------------------------------------
         // DELETE api/values/5
         [HttpDelete("{id}")]
         public void Delete(int id)

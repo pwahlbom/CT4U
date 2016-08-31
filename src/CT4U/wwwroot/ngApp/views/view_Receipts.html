@@ -4,22 +4,100 @@
 </p>
 <br />
 
-<form ng-submit="receipts_controller.addReceipt(model)">
-    <input ng-model="model.applicationUserId" placeholder="applicationUserId" />
-    <input ng-model="model.purchaseDate" placeholder="purchaseDate" />
-    <input ng-model="model.note" placeholder="note" />
-    <input type="submit" />
+<!-- CREATE ------------------------------------------------------------------------------------------------------>
+<h4>CREATE</h4>
+<form ng-submit="receipts_controller.addReceipt(addReceipt)">
+    <table class="table table-striped">
+        <tr>
+            <th>Purchase Date</th>
+            <th>Note</th>
+            <th>Submit</th>
+        </tr>
+        <tr>
+            <td>
+                <input ng-model="addReceipt.purchaseDate" placeholder="Purchase Date" />
+            </td>
+            <td>
+                <input ng-model="addReceipt.note" placeholder="Note" />
+            </td>
+            <td>
+                <input type="submit" />
+            </td>
+        </tr>
+    </table>
 </form>
 
+<!-- READ ------------------------------------------------------------------------------------------------------>
+<h4>READ</h4>
 <table class="table table-striped">
     <tr>
         <th>Purchase Date</th>
         <th>Note</th>
-        <th>Details</th>
+        <th>Edit</th>
+        <th>Delete</th>
+        <th>Add Items</th>
     </tr>
     <tr ng-repeat="receipt in receipts_controller.receipts track by $index">
         <td>{{receipt.purchaseDate}}</td>
         <td>{{receipt.note}}</td>
-        <td><a ui-sref="details({id: receipt.id})">Details</a></td>
+        <td><button ng-click="receipts_controller.showEdit(receipt)">Edit</button></td>
+        <td><button ng-click="receipts_controller.showDelete(receipt)">Delete</button></td>
+        <td><a ui-sref="items({receiptid: receipt.id})"> >>> </a></td>
     </tr>
 </table>
+
+<!-- UPDATE ------------------------------------------------------------------------------------------------------>
+<div ng-show="receipts_controller.blnShowEdit">
+    <h4 class="keeptogether">{{receipts_controller.strAction}}</h4>
+    <button ng-click="receipts_controller.hideEdit()">Cancel</button>
+
+    <form ng-submit="receipts_controller.editReceipt()">
+        <table class="table table-striped">
+            <tr>
+                <th ng-show="false">ID</th>
+                <th>Purchase Date</th>
+                <th>Note</th>
+                <th>Submit</th>
+            </tr>
+            <tr>
+                <td ng-show="false">
+                    <input ng-model="receipts_controller.receipt.id" placeholder="ID" />
+                </td>
+                <td>
+                    <input ng-model="receipts_controller.receipt.purchaseDate" placeholder="Purchase Date" />
+                </td>
+                <td>
+                    <input ng-model="receipts_controller.receipt.note" placeholder="Note" />
+                </td>
+                <td>
+                    <input type="submit" />
+                </td>
+            </tr>
+        </table>
+    </form>
+</div>
+
+<!-- DELETE ------------------------------------------------------------------------------------------------------>
+<div ng-show="receipts_controller.blnShowDelete">
+    <h4 class="keeptogether">{{receipts_controller.strAction}}</h4>
+    <button ng-click="receipts_controller.hideDelete()">Cancel</button>
+
+    <form ng-submit="receipts_controller.deleteReceipt()">
+        <table class="table table-striped">
+            <tr>
+                <th ng-show="false">ID</th>
+                <th>Purchase Date</th>
+                <th>Note</th>
+                <th>Submit</th>
+            </tr>
+            <tr>
+                <td ng-show="false">{{receipts_controller.receipt.id}}</td>
+                <td>{{receipts_controller.receipt.purchaseDate}}</td>
+                <td>{{receipts_controller.receipt.note}}</td>
+                <td>
+                    <input type="submit" />
+                </td>
+            </tr>
+        </table>
+    </form>
+</div>

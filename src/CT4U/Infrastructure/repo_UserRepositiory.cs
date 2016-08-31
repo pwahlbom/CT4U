@@ -6,9 +6,9 @@ using System.Threading.Tasks;
 
 namespace CT4U.Infrastructure
 {
-    public class ApplicationUserRepository : GenericRepository<ApplicationUser>
+    public class UserRepository : GenericRepository<ApplicationUser>
     {
-        public ApplicationUserRepository(Data.ApplicationDbContext db) : base(db)
+        public UserRepository(Data.ApplicationDbContext db) : base(db)
         {
         }
 

@@ -56,7 +56,7 @@ namespace CT4U.Migrations
                         .Annotation("SqlServer:ValueGenerationStrategy", SqlServerValueGenerationStrategy.IdentityColumn),
                     MeasurementUnits = table.Column<string>(nullable: true),
                     Name = table.Column<string>(nullable: true),
-                    Notes = table.Column<string>(nullable: true)
+                    Note = table.Column<string>(nullable: true)
                 },
                 constraints: table =>
                 {
@@ -205,6 +205,7 @@ namespace CT4U.Migrations
                     ReceiptId = table.Column<int>(nullable: false),
                     ProductId = table.Column<int>(nullable: false),
                     Id = table.Column<int>(nullable: false),
+                    Note = table.Column<string>(nullable: true),
                     UnitsPurchased = table.Column<int>(nullable: false)
                 },
                 constraints: table =>

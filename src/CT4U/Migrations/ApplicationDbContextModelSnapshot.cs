@@ -101,6 +101,8 @@ namespace CT4U.Migrations
 
                     b.Property<int>("Id");
 
+                    b.Property<string>("Note");
+
                     b.Property<int>("UnitsPurchased");
 
                     b.HasKey("ReceiptId", "ProductId");
@@ -121,7 +123,7 @@ namespace CT4U.Migrations
 
                     b.Property<string>("Name");
 
-                    b.Property<string>("Notes");
+                    b.Property<string>("Note");
 
                     b.HasKey("Id");
 

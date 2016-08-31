@@ -5,6 +5,10 @@
         public receipts;
         public receipt;
 
+        public strAction = "";
+        public blnShowEdit = false;
+        public blnShowDelete = false;
+
         constructor(public $http: ng.IHttpService, public $state: ng.ui.IStateService, public $stateParams: ng.ui.IStateParamsService) {
             this.getReceipts();
         }
@@ -39,10 +43,46 @@
         }
 
         // DELETE ----------------------------------------------------------------------------------------------------
-        public delete() {
+        public deleteReceipt() {
             this.$http.delete(`api/receipts/${this.receipt.id}`).then((res) => {
-                this.$state.go('home');
+                this.$state.reload();
+                //this.$state.go('home');
             });
+        }
+
+        // MISCELLANEOUS ----------------------------------------------------------------------------------------------------
+        public showEdit(currentReceipt) {
+            this.strAction = "UPDATE";
+            this.blnShowEdit = true;
+            this.blnShowDelete = !this.blnShowEdit;
+            var tempReceipt = {
+                id: currentReceipt.id,
+                purchaseDate: currentReceipt.purchaseDate,
+                note: currentReceipt.note
+            }
+
+            this.receipt = tempReceipt;
+        }
+
+        public showDelete(currentReceipt) {
+            this.strAction = "DELETE";
+            this.blnShowEdit = false;
+            this.blnShowDelete = !this.blnShowEdit;
+            var tempReceipt = {
+                id: currentReceipt.id,
+                purchaseDate: currentReceipt.purchaseDate,
+                note: currentReceipt.note
+            }
+
+            this.receipt = tempReceipt;
+        }
+
+        public hideEdit() {
+            this.blnShowEdit = false;
+        }
+
+        public hideDelete(){
+            this.blnShowDelete = false;
         }
     }
 }

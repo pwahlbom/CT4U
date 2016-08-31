@@ -91,16 +91,16 @@ namespace CT4U.Data
             if (!db.Products.Any())
             {
                 db.Products.AddRange(
-                    new Product { Name = "Mouthwash", MeasurementUnits = "ounces", Notes = "" },
-                    new Product { Name = "Paper Towels", MeasurementUnits = "rolls", Notes = "" },
-                    new Product { Name = "Milk", MeasurementUnits = "gallons", Notes = "How often do I REALLY need to go buy milk??!!" },
-                    new Product { Name = "Sugar", MeasurementUnits = "pounds", Notes = "" },
-                    new Product { Name = "Razor Cartridges", MeasurementUnits = "pieces", Notes = "" },
-                    new Product { Name = "Liquid Laundry Detergent", MeasurementUnits = "loads", Notes = "" },
-                    new Product { Name = "Ball Point Pens", MeasurementUnits = "pieces", Notes = "" },
-                    new Product { Name = "Printer Paper", MeasurementUnits = "sheets", Notes = "I think we buy more paper than we realize" },
-                    new Product { Name = "Coffee Beans", MeasurementUnits = "ounces", Notes = "Be sure to buy the French roast!" },
-                    new Product { Name = "Beer", MeasurementUnits = "16oz units", Notes = "Whether cans or bottles, we're tracing beer by the 16oz unit" }
+                    new Product { Name = "Mouthwash", MeasurementUnits = "ounces", Note = "" },
+                    new Product { Name = "Paper Towels", MeasurementUnits = "rolls", Note = "" },
+                    new Product { Name = "Milk", MeasurementUnits = "gallons", Note = "How often do I REALLY need to go buy milk??!!" },
+                    new Product { Name = "Sugar", MeasurementUnits = "pounds", Note = "" },
+                    new Product { Name = "Razor Cartridges", MeasurementUnits = "pieces", Note = "" },
+                    new Product { Name = "Liquid Laundry Detergent", MeasurementUnits = "loads", Note = "" },
+                    new Product { Name = "Ball Point Pens", MeasurementUnits = "pieces", Note = "" },
+                    new Product { Name = "Printer Paper", MeasurementUnits = "sheets", Note = "I think we buy more paper than we realize" },
+                    new Product { Name = "Coffee Beans", MeasurementUnits = "ounces", Note = "Be sure to buy the French roast!" },
+                    new Product { Name = "Beer", MeasurementUnits = "16oz units", Note = "Whether cans or bottles, we're tracing beer by the 16oz unit" }
                 );
                 db.SaveChanges();
             }
@@ -111,13 +111,14 @@ namespace CT4U.Data
             // We need userid a few times so lets just store it in a variable
             //Philip = await userManager.FindByNameAsync("philip@wahlbom.net");
             var PhilipsId = philip.Id;
+            var MikesID = mike.Id;
             //var PhilipsId = db.Users.FirstOrDefault(u => u.UserName == "philip@wahlbom.net").Id;
 
             if (!db.Receipts.Any())
             {
                 db.Receipts.AddRange(
                     new Receipt { PurchaseDate = Convert.ToDateTime("5/14/2016"), ApplicationUserId = PhilipsId, Note = "Cupboard empty, HAD to go shopping!" },
-                    new Receipt { PurchaseDate = Convert.ToDateTime("6/2/2016"), ApplicationUserId = PhilipsId, Note = "Cooked dinner for Susie, needed stuff" },
+                    new Receipt { PurchaseDate = Convert.ToDateTime("6/2/2016"), ApplicationUserId = MikesID, Note = "Cooked dinner for Susie, needed stuff" },
                     new Receipt { PurchaseDate = Convert.ToDateTime("7/21/2016"), ApplicationUserId = PhilipsId, Note = "Resupply" },
                     new Receipt { PurchaseDate = Convert.ToDateTime("8/9/2016"), ApplicationUserId = PhilipsId, Note = "Friends coming over tomorrrow" }
                 );
