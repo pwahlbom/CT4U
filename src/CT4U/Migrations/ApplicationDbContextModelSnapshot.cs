@@ -99,11 +99,9 @@ namespace CT4U.Migrations
 
                     b.Property<int>("ProductId");
 
-                    b.Property<int>("Id");
-
                     b.Property<string>("Note");
 
-                    b.Property<int>("UnitsPurchased");
+                    b.Property<decimal>("UnitsPurchased");
 
                     b.HasKey("ReceiptId", "ProductId");
 

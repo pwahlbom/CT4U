@@ -8,7 +8,7 @@ using CT4U.Data;
 namespace CT4U.Migrations
 {
     [DbContext(typeof(ApplicationDbContext))]
-    [Migration("20160830181042_start")]
+    [Migration("20160901153055_start")]
     partial class start
     {
         protected override void BuildTargetModel(ModelBuilder modelBuilder)
@@ -100,11 +100,9 @@ namespace CT4U.Migrations
 
                     b.Property<int>("ProductId");
 
-                    b.Property<int>("Id");
-
                     b.Property<string>("Note");
 
-                    b.Property<int>("UnitsPurchased");
+                    b.Property<decimal>("UnitsPurchased");
 
                     b.HasKey("ReceiptId", "ProductId");
 

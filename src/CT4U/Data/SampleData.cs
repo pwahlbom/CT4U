@@ -100,7 +100,7 @@ namespace CT4U.Data
                     new Product { Name = "Ball Point Pens", MeasurementUnits = "pieces", Note = "" },
                     new Product { Name = "Printer Paper", MeasurementUnits = "sheets", Note = "I think we buy more paper than we realize" },
                     new Product { Name = "Coffee Beans", MeasurementUnits = "ounces", Note = "Be sure to buy the French roast!" },
-                    new Product { Name = "Beer", MeasurementUnits = "16oz units", Note = "Whether cans or bottles, we're tracing beer by the 16oz unit" }
+                    new Product { Name = "Beer", MeasurementUnits = "12oz units", Note = "Whether cans or bottles, we're tracking beer by the 12oz unit" }
                 );
                 db.SaveChanges();
             }
@@ -154,42 +154,42 @@ namespace CT4U.Data
                 db.Items.AddRange(
 
                     // The first receipt
-                    new Item { Id = 1, ReceiptId = ReceiptId1, ProductId = ProductIdA, UnitsPurchased = rnd.Next(1, 53) },
-                    new Item { Id = 2, ReceiptId = ReceiptId1, ProductId = ProductIdB, UnitsPurchased = rnd.Next(1, 53) },
-                    new Item { Id = 3, ReceiptId = ReceiptId1, ProductId = ProductIdC, UnitsPurchased = rnd.Next(1, 53) },
-                    new Item { Id = 4, ReceiptId = ReceiptId1, ProductId = ProductIdD, UnitsPurchased = rnd.Next(1, 53) },
-                    new Item { Id = 5, ReceiptId = ReceiptId1, ProductId = ProductIdE, UnitsPurchased = rnd.Next(1, 53) },
-                    new Item { Id = 6, ReceiptId = ReceiptId1, ProductId = ProductIdF, UnitsPurchased = rnd.Next(1, 53) },
-                    new Item { Id = 7, ReceiptId = ReceiptId1, ProductId = ProductIdG, UnitsPurchased = rnd.Next(1, 53) },
-                    new Item { Id = 8, ReceiptId = ReceiptId1, ProductId = ProductIdH, UnitsPurchased = rnd.Next(1, 53) },
-                    new Item { Id = 9, ReceiptId = ReceiptId1, ProductId = ProductIdI, UnitsPurchased = rnd.Next(1, 53) },
-                    new Item { Id = 10, ReceiptId = ReceiptId1, ProductId = ProductIdJ, UnitsPurchased = rnd.Next(1, 53) },
+                    new Item {ReceiptId = ReceiptId1, ProductId = ProductIdA, UnitsPurchased = rnd.Next(1, 53) },
+                    new Item {ReceiptId = ReceiptId1, ProductId = ProductIdB, UnitsPurchased = rnd.Next(1, 53) },
+                    new Item {ReceiptId = ReceiptId1, ProductId = ProductIdC, UnitsPurchased = rnd.Next(1, 53) },
+                    new Item {ReceiptId = ReceiptId1, ProductId = ProductIdD, UnitsPurchased = rnd.Next(1, 53) },
+                    new Item {ReceiptId = ReceiptId1, ProductId = ProductIdE, UnitsPurchased = rnd.Next(1, 53) },
+                    new Item {ReceiptId = ReceiptId1, ProductId = ProductIdF, UnitsPurchased = rnd.Next(1, 53) },
+                    new Item {ReceiptId = ReceiptId1, ProductId = ProductIdG, UnitsPurchased = rnd.Next(1, 53) },
+                    new Item {ReceiptId = ReceiptId1, ProductId = ProductIdH, UnitsPurchased = rnd.Next(1, 53) },
+                    new Item {ReceiptId = ReceiptId1, ProductId = ProductIdI, UnitsPurchased = rnd.Next(1, 53) },
+                    new Item {ReceiptId = ReceiptId1, ProductId = ProductIdJ, UnitsPurchased = rnd.Next(1, 53) },
 
                     // The second receipt
-                    new Item { Id = 11, ReceiptId = ReceiptId2, ProductId = ProductIdB, UnitsPurchased = rnd.Next(1, 53) },
-                    new Item { Id = 12, ReceiptId = ReceiptId2, ProductId = ProductIdC, UnitsPurchased = rnd.Next(1, 53) },
-                    new Item { Id = 13, ReceiptId = ReceiptId2, ProductId = ProductIdD, UnitsPurchased = rnd.Next(1, 53) },
-                    new Item { Id = 14, ReceiptId = ReceiptId2, ProductId = ProductIdE, UnitsPurchased = rnd.Next(1, 53) },
-                    new Item { Id = 15, ReceiptId = ReceiptId2, ProductId = ProductIdF, UnitsPurchased = rnd.Next(1, 53) },
-                    new Item { Id = 16, ReceiptId = ReceiptId2, ProductId = ProductIdG, UnitsPurchased = rnd.Next(1, 53) },
-                    new Item { Id = 17, ReceiptId = ReceiptId2, ProductId = ProductIdH, UnitsPurchased = rnd.Next(1, 53) },
-                    new Item { Id = 18, ReceiptId = ReceiptId2, ProductId = ProductIdI, UnitsPurchased = rnd.Next(1, 53) },
+                    new Item {ReceiptId = ReceiptId2, ProductId = ProductIdB, UnitsPurchased = rnd.Next(1, 53) },
+                    new Item {ReceiptId = ReceiptId2, ProductId = ProductIdC, UnitsPurchased = rnd.Next(1, 53) },
+                    new Item {ReceiptId = ReceiptId2, ProductId = ProductIdD, UnitsPurchased = rnd.Next(1, 53) },
+                    new Item {ReceiptId = ReceiptId2, ProductId = ProductIdE, UnitsPurchased = rnd.Next(1, 53) },
+                    new Item {ReceiptId = ReceiptId2, ProductId = ProductIdF, UnitsPurchased = rnd.Next(1, 53) },
+                    new Item {ReceiptId = ReceiptId2, ProductId = ProductIdG, UnitsPurchased = rnd.Next(1, 53) },
+                    new Item {ReceiptId = ReceiptId2, ProductId = ProductIdH, UnitsPurchased = rnd.Next(1, 53) },
+                    new Item {ReceiptId = ReceiptId2, ProductId = ProductIdI, UnitsPurchased = rnd.Next(1, 53) },
 
                     // The third receipt
-                    new Item { Id = 19, ReceiptId = ReceiptId3, ProductId = ProductIdA, UnitsPurchased = rnd.Next(1, 53) },
-                    new Item { Id = 20, ReceiptId = ReceiptId3, ProductId = ProductIdB, UnitsPurchased = rnd.Next(1, 53) },
-                    new Item { Id = 21, ReceiptId = ReceiptId3, ProductId = ProductIdC, UnitsPurchased = rnd.Next(1, 53) },
-                    new Item { Id = 22, ReceiptId = ReceiptId3, ProductId = ProductIdD, UnitsPurchased = rnd.Next(1, 53) },
-                    new Item { Id = 23, ReceiptId = ReceiptId3, ProductId = ProductIdH, UnitsPurchased = rnd.Next(1, 53) },
-                    new Item { Id = 24, ReceiptId = ReceiptId3, ProductId = ProductIdI, UnitsPurchased = rnd.Next(1, 53) },
-                    new Item { Id = 25, ReceiptId = ReceiptId3, ProductId = ProductIdJ, UnitsPurchased = rnd.Next(1, 53) },
+                    new Item {ReceiptId = ReceiptId3, ProductId = ProductIdA, UnitsPurchased = rnd.Next(1, 53) },
+                    new Item {ReceiptId = ReceiptId3, ProductId = ProductIdB, UnitsPurchased = rnd.Next(1, 53) },
+                    new Item {ReceiptId = ReceiptId3, ProductId = ProductIdC, UnitsPurchased = rnd.Next(1, 53) },
+                    new Item {ReceiptId = ReceiptId3, ProductId = ProductIdD, UnitsPurchased = rnd.Next(1, 53) },
+                    new Item {ReceiptId = ReceiptId3, ProductId = ProductIdH, UnitsPurchased = rnd.Next(1, 53) },
+                    new Item {ReceiptId = ReceiptId3, ProductId = ProductIdI, UnitsPurchased = rnd.Next(1, 53) },
+                    new Item {ReceiptId = ReceiptId3, ProductId = ProductIdJ, UnitsPurchased = rnd.Next(1, 53) },
 
                     // The fourth receipt
-                    new Item { Id = 26, ReceiptId = ReceiptId4, ProductId = ProductIdD, UnitsPurchased = rnd.Next(1, 53) },
-                    new Item { Id = 27, ReceiptId = ReceiptId4, ProductId = ProductIdE, UnitsPurchased = rnd.Next(1, 53) },
-                    new Item { Id = 28, ReceiptId = ReceiptId4, ProductId = ProductIdF, UnitsPurchased = rnd.Next(1, 53) },
-                    new Item { Id = 29, ReceiptId = ReceiptId4, ProductId = ProductIdG, UnitsPurchased = rnd.Next(1, 53) },
-                    new Item { Id = 30, ReceiptId = ReceiptId4, ProductId = ProductIdH, UnitsPurchased = rnd.Next(1, 53) }
+                    new Item {ReceiptId = ReceiptId4, ProductId = ProductIdD, UnitsPurchased = rnd.Next(1, 53) },
+                    new Item {ReceiptId = ReceiptId4, ProductId = ProductIdE, UnitsPurchased = rnd.Next(1, 53) },
+                    new Item {ReceiptId = ReceiptId4, ProductId = ProductIdF, UnitsPurchased = rnd.Next(1, 53) },
+                    new Item {ReceiptId = ReceiptId4, ProductId = ProductIdG, UnitsPurchased = rnd.Next(1, 53) },
+                    new Item {ReceiptId = ReceiptId4, ProductId = ProductIdH, UnitsPurchased = rnd.Next(1, 53) }
                 );
                 db.SaveChanges();
             }

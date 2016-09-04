@@ -13,19 +13,20 @@ namespace CT4U.Infrastructure
         {
         }
 
-        public Item Find(int id)
+        public Item Find(int receiptId, int productId)
         {
-            return (from model in _db.Items where model.Id == id select model).FirstOrDefault();
+            //CHECK ProductId!!! JUNCTION table here
+            return (from model in _db.Items where model.ProductId == productId && model.ReceiptId == receiptId select model).FirstOrDefault();
         }
 
         public void Update(Item model)
         {
-            var orig = Find(model.Id);
+            //CHECK ProductId!!! JUNCTION table here
+            var orig = Find(model.ReceiptId, model.ProductId);
 
             // Add aditional updateable fields here
             orig.ReceiptId = model.ReceiptId;
             orig.ProductId = model.ProductId;
-            orig.Id = model.Id;
             orig.UnitsPurchased = model.UnitsPurchased;
             orig.Note = model.Note;
         }

@@ -204,9 +204,8 @@ namespace CT4U.Migrations
                 {
                     ReceiptId = table.Column<int>(nullable: false),
                     ProductId = table.Column<int>(nullable: false),
-                    Id = table.Column<int>(nullable: false),
                     Note = table.Column<string>(nullable: true),
-                    UnitsPurchased = table.Column<int>(nullable: false)
+                    UnitsPurchased = table.Column<decimal>(nullable: false)
                 },
                 constraints: table =>
                 {

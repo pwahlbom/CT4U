@@ -5,7 +5,7 @@
 <br />
 
 <!-- CREATE ------------------------------------------------------------------------------------------------------>
-<h4>CREATE</h4>
+<h3>CREATE</h3>
 <form ng-submit="receipts_controller.addReceipt(addReceipt)">
     <table class="table table-striped">
         <tr>
@@ -28,7 +28,7 @@
 </form>
 
 <!-- READ ------------------------------------------------------------------------------------------------------>
-<h4>READ</h4>
+<h3>READ</h3>
 <table class="table table-striped">
     <tr>
         <th>Purchase Date</th>
@@ -48,7 +48,7 @@
 
 <!-- UPDATE ------------------------------------------------------------------------------------------------------>
 <div ng-show="receipts_controller.blnShowEdit">
-    <h4 class="keeptogether">{{receipts_controller.strAction}}</h4>
+    <h3 class="keeptogether">{{receipts_controller.strAction}}</h3>
     <button ng-click="receipts_controller.hideEdit()">Cancel</button>
 
     <form ng-submit="receipts_controller.editReceipt()">
@@ -79,7 +79,7 @@
 
 <!-- DELETE ------------------------------------------------------------------------------------------------------>
 <div ng-show="receipts_controller.blnShowDelete">
-    <h4 class="keeptogether">{{receipts_controller.strAction}}</h4>
+    <h3 class="keeptogether">{{receipts_controller.strAction}}</h3>
     <button ng-click="receipts_controller.hideDelete()">Cancel</button>
 
     <form ng-submit="receipts_controller.deleteReceipt()">
@@ -94,9 +94,7 @@
                 <td ng-show="false">{{receipts_controller.receipt.id}}</td>
                 <td>{{receipts_controller.receipt.purchaseDate}}</td>
                 <td>{{receipts_controller.receipt.note}}</td>
-                <td>
-                    <input type="submit" />
-                </td>
+                <td><input type="submit" /></td>
             </tr>
         </table>
     </form>

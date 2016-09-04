@@ -4,17 +4,127 @@
 </p>
 <br />
 
+<!-- CREATE ------------------------------------------------------------------------------------------------------>
+<h3>CREATE</h3>
+<form ng-submit="items_controller.addItem(addItem)">
+    <table class="table table-striped">
+        <tr>
+            <th ng-show="false">ReceiptID</th>
+            <th>Product</th>
+            <th>Units Purchased</th>
+            <th>Measurement Units</th>
+            <th>Note</th>
+            <th>Submit</th>
+        </tr>
+        <tr>
+            <td ng-show="false">{{items_controller.intReceiptID}}</td>
+            <td>
+                <select ng-model="addItem.productId" name="products" ng-change="items_controller.UpdateMeasurementUnits(addItem.productId)" placeholder="Product" >
+                    <option ng-repeat="product in items_controller.products" value="{{product.id}}">{{product.name}}</option>
+                </select>
+            </td>
+            <td>
+                <input ng-model="addItem.unitsPurchased" placeholder="Units Purchased" />
+            </td>
+            <td>
+                {{items_controller.createMeasurementUnits}}
+            </td>
+            <td>
+                <input ng-model="addItem.note" placeholder="Note" />
+            </td>
+            <td>
+                <input type="submit" />
+            </td>
+        </tr>
+    </table>
+
+</form>
+
+<h3>PRODUCT QUICK-ADD (coming soon....)</h3>
+<br />
+
+<!-- READ ------------------------------------------------------------------------------------------------------>
+<h3>READ</h3>
 <table class="table table-striped">
     <tr>
-        <th>Id</th>
-        <th>receiptId</th>
-        <th>productId</th>
+        <th ng-show="false">receiptId</th>
+        <th ng-show="false">productId</th>
+        <th>Product</th>
         <th>Units Purchased</th>
+        <th>Measurement Units</th>
+        <th>Note</th>
+        <th>Edit</th>
+        <th>Delete</th>
     </tr>
+
     <tr ng-repeat="item in items_controller.items track by $index">
-        <td>{{item.id}}</td>
-        <td>{{item.receiptId}}</td>
-        <td>{{item.productId}}</td>
+        <td ng-show="false">{{item.receiptId}}</td>
+        <td ng-show="false">{{item.productId}}</td>
+        <td>{{item.productName}}</td>
         <td>{{item.unitsPurchased}}</td>
+        <td>{{item.measurementUnits}}</td>
+        <td>{{item.note}}</td>
+        <td><button ng-click="items_controller.showEdit(item)">Edit</button></td>
+        <td><button ng-click="items_controller.showDelete(item)">Delete</button></td>
     </tr>
 </table>
+
+<!-- UPDATE ------------------------------------------------------------------------------------------------------>
+<div ng-show="items_controller.blnShowEdit">
+    <h3 class="keeptogether">{{items_controller.strAction}}</h3>
+    <button ng-click="items_controller.hideEdit()">Cancel</button>
+
+    <form ng-submit="items_controller.editItem()">
+        <table class="table table-striped">
+            <tr>
+                <th ng-show="false">ReceiptID</th>
+                <th ng-show="false">ProductID</th>
+                <th>Product</th>
+                <th>Units Purchased</th>
+                <th>Measurement Units</th>
+                <th>Note</th>
+                <th>Submit</th>
+            </tr>
+
+            <tr>
+                <td ng-show="false">{{items_controller.item.receiptId}}</td>
+                <td ng-show="false">{{items_controller.item.productId}}</td>
+                <td>{{items_controller.item.productName}}</td>
+                <td><input ng-model="items_controller.item.unitsPurchased" placeholder="Units Purchased" /></td>
+                <td>{{items_controller.item.measurementUnits}}</td>
+                <td><input ng-model="items_controller.item.note" placeholder="Note" /></td>
+                <td><input type="submit" /></td>
+            </tr>
+        </table>
+    </form>
+</div>
+
+<!-- DELETE ------------------------------------------------------------------------------------------------------>
+<div ng-show="items_controller.blnShowDelete">
+    <h3 class="keeptogether">{{items_controller.strAction}}</h3>
+    <button ng-click="items_controller.hideDelete()">Cancel</button>
+
+    <form ng-submit="items_controller.deleteItem()">
+        <table class="table table-striped">
+            <tr>
+                <th ng-show="false">ReceiptID</th>
+                <th ng-show="false">ProductID</th>
+                <th>Product</th>
+                <th>Units Purchased</th>
+                <th>Measurement Units</th>
+                <th>Note</th>
+                <th>Submit</th>
+            </tr>
+
+            <tr>
+                <td ng-show="false">{{items_controller.item.receiptId}}</td>
+                <td ng-show="false">{{items_controller.item.productId}}</td>
+                <td>{{items_controller.item.productName}}</td>
+                <td>{{items_controller.item.unitsPurchased}}</td>
+                <td>{{items_controller.item.measurementUnits}}</td>
+                <td>{{items_controller.item.note}}</td>
+                <td><input type="submit" /></td>
+            </tr>
+        </table>
+    </form>
+</div>
