@@ -64,7 +64,7 @@ namespace CT4U.API
 
         // MISCELLANEOUS ----------------------------------------------------------------------------------------------------
         // DELETE api/consumptions/deleteusersconsumptions/5
-        //HERE why httpdelete?????
+        // Here why httpdelete?????
         [HttpDelete("addusersconsumptions/{applicationuserid}")]
         public void AddUsersConsumptions(string applicationuserid)
         {
