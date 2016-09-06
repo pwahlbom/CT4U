@@ -59,12 +59,14 @@ namespace CT4U
             services.AddScoped<ReceiptRepository>();
             services.AddScoped<ProductRepository>();
             services.AddScoped<ItemRepository>();
+            services.AddScoped<ConsumptionRepository>();
 
             //Add Services
             services.AddScoped<UserService>();
             services.AddScoped<ReceiptService>();
             services.AddScoped<ProductService>();
             services.AddScoped<ItemService>();
+            services.AddScoped<ConsumptionService>();
 
             // add security policies
             services.AddAuthorization(options =>

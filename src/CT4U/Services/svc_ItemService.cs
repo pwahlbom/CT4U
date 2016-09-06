@@ -10,12 +10,11 @@ namespace CT4U.Services
     public class ItemService
     {
         private ItemRepository _irepo;
-        private ProductRepository _prepo;
+        //private ProductRepository _prepo;
 
-        public ItemService(ItemRepository irepo, ProductRepository prepo)
+        public ItemService(ItemRepository irepo)
         {
             _irepo = irepo;
-            _prepo = prepo;
         }
 
         public IList<Item> GetItems()
@@ -31,11 +30,9 @@ namespace CT4U.Services
         public IList<ItemMore> GetReceiptsItems(int receiptId)
         {
             var items = _irepo.List();
-            var products = _prepo.List();
+            //var products = _prepo.List();
 
             return (from i in items
-                    join p in products
-                    on i.ProductId equals p.Id
                     where i.ReceiptId == receiptId
                     select new ItemMore
                     {
@@ -45,20 +42,36 @@ namespace CT4U.Services
                         ProductId = i.ProductId,
                         UnitsPurchased = i.UnitsPurchased,
                         Note = i.Note,
-                        ProductName = p.Name,
-                        MeasurementUnits = p.MeasurementUnits
+                        ProductName = i.Product.Name,
+                        MeasurementUnits = i.Product.MeasurementUnits
                     }).ToList();
+
+            //return (from i in items
+            //        join p in products
+            //        on i.ProductId equals p.Id
+            //        where i.ReceiptId == receiptId
+            //        select new ItemMore
+            //        {
+            //            Receipt = i.Receipt,
+            //            ReceiptId = i.ReceiptId,
+            //            Product = i.Product,
+            //            ProductId = i.ProductId,
+            //            UnitsPurchased = i.UnitsPurchased,
+            //            Note = i.Note,
+            //            ProductName = p.Name,
+            //            MeasurementUnits = p.MeasurementUnits
+            //        }).ToList();
         }
 
-        public void AddItem(Item value)
+        public void AddItem(Item model)
         {
-            _irepo.Add(value);
+            _irepo.Add(model);
             _irepo.SaveChanges();
         }
 
-        public void UpdateItem(Item value)
+        public void UpdateItem(Item model)
         {
-            _irepo.Update(value);
+            _irepo.Update(model);
             _irepo.SaveChanges();
         }
 

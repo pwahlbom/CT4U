@@ -74,16 +74,14 @@ namespace CT4U.Data
 
             //----------------------------------------------------------------------------------------------------
             // Below here  is where the custom sample data is loaded
-            //var db = serviceProvider.GetService<ApplicationDbContext>();
-            //await db.Database.EnsureCreatedAsync();
 
             //----------------------------------------------------------------------------------------------------
             // Go ahead and remove all our records so we can repopulate from scratch
             db.Products.RemoveRange(db.Products);
             db.Receipts.RemoveRange(db.Receipts);
             db.Items.RemoveRange(db.Items);
+            db.Consumptions.RemoveRange(db.Consumptions);
             db.SaveChanges();
-            //var test = db.Receipts.Count();
             //----------------------------------------------------------------------------------------------------
 
             //----------------------------------------------------------------------------------------------------
@@ -109,16 +107,14 @@ namespace CT4U.Data
             //----------------------------------------------------------------------------------------------------
             // Load up the Receipts table
             // We need userid a few times so lets just store it in a variable
-            //Philip = await userManager.FindByNameAsync("philip@wahlbom.net");
             var PhilipsId = philip.Id;
-            var MikesID = mike.Id;
-            //var PhilipsId = db.Users.FirstOrDefault(u => u.UserName == "philip@wahlbom.net").Id;
+            var MikesId = mike.Id;
 
             if (!db.Receipts.Any())
             {
                 db.Receipts.AddRange(
                     new Receipt { PurchaseDate = Convert.ToDateTime("5/14/2016"), ApplicationUserId = PhilipsId, Note = "Cupboard empty, HAD to go shopping!" },
-                    new Receipt { PurchaseDate = Convert.ToDateTime("6/2/2016"), ApplicationUserId = MikesID, Note = "Cooked dinner for Susie, needed stuff" },
+                    new Receipt { PurchaseDate = Convert.ToDateTime("6/2/2016"), ApplicationUserId = PhilipsId, Note = "Cooked dinner for Susie, needed stuff" },
                     new Receipt { PurchaseDate = Convert.ToDateTime("7/21/2016"), ApplicationUserId = PhilipsId, Note = "Resupply" },
                     new Receipt { PurchaseDate = Convert.ToDateTime("8/9/2016"), ApplicationUserId = PhilipsId, Note = "Friends coming over tomorrrow" }
                 );
@@ -154,46 +150,68 @@ namespace CT4U.Data
                 db.Items.AddRange(
 
                     // The first receipt
-                    new Item {ReceiptId = ReceiptId1, ProductId = ProductIdA, UnitsPurchased = rnd.Next(1, 53) },
-                    new Item {ReceiptId = ReceiptId1, ProductId = ProductIdB, UnitsPurchased = rnd.Next(1, 53) },
-                    new Item {ReceiptId = ReceiptId1, ProductId = ProductIdC, UnitsPurchased = rnd.Next(1, 53) },
-                    new Item {ReceiptId = ReceiptId1, ProductId = ProductIdD, UnitsPurchased = rnd.Next(1, 53) },
-                    new Item {ReceiptId = ReceiptId1, ProductId = ProductIdE, UnitsPurchased = rnd.Next(1, 53) },
-                    new Item {ReceiptId = ReceiptId1, ProductId = ProductIdF, UnitsPurchased = rnd.Next(1, 53) },
-                    new Item {ReceiptId = ReceiptId1, ProductId = ProductIdG, UnitsPurchased = rnd.Next(1, 53) },
-                    new Item {ReceiptId = ReceiptId1, ProductId = ProductIdH, UnitsPurchased = rnd.Next(1, 53) },
-                    new Item {ReceiptId = ReceiptId1, ProductId = ProductIdI, UnitsPurchased = rnd.Next(1, 53) },
-                    new Item {ReceiptId = ReceiptId1, ProductId = ProductIdJ, UnitsPurchased = rnd.Next(1, 53) },
+                    new Item { ReceiptId = ReceiptId1, ProductId = ProductIdA, UnitsPurchased = rnd.Next(1, 53) },
+                    new Item { ReceiptId = ReceiptId1, ProductId = ProductIdB, UnitsPurchased = rnd.Next(1, 53) },
+                    new Item { ReceiptId = ReceiptId1, ProductId = ProductIdC, UnitsPurchased = rnd.Next(1, 53) },
+                    new Item { ReceiptId = ReceiptId1, ProductId = ProductIdD, UnitsPurchased = rnd.Next(1, 53) },
+                    new Item { ReceiptId = ReceiptId1, ProductId = ProductIdE, UnitsPurchased = rnd.Next(1, 53) },
+                    new Item { ReceiptId = ReceiptId1, ProductId = ProductIdF, UnitsPurchased = rnd.Next(1, 53) },
+                    new Item { ReceiptId = ReceiptId1, ProductId = ProductIdG, UnitsPurchased = rnd.Next(1, 53) },
+                    new Item { ReceiptId = ReceiptId1, ProductId = ProductIdH, UnitsPurchased = rnd.Next(1, 53) },
+                    new Item { ReceiptId = ReceiptId1, ProductId = ProductIdI, UnitsPurchased = rnd.Next(1, 53) },
+                    new Item { ReceiptId = ReceiptId1, ProductId = ProductIdJ, UnitsPurchased = rnd.Next(1, 53) },
 
                     // The second receipt
-                    new Item {ReceiptId = ReceiptId2, ProductId = ProductIdB, UnitsPurchased = rnd.Next(1, 53) },
-                    new Item {ReceiptId = ReceiptId2, ProductId = ProductIdC, UnitsPurchased = rnd.Next(1, 53) },
-                    new Item {ReceiptId = ReceiptId2, ProductId = ProductIdD, UnitsPurchased = rnd.Next(1, 53) },
-                    new Item {ReceiptId = ReceiptId2, ProductId = ProductIdE, UnitsPurchased = rnd.Next(1, 53) },
-                    new Item {ReceiptId = ReceiptId2, ProductId = ProductIdF, UnitsPurchased = rnd.Next(1, 53) },
-                    new Item {ReceiptId = ReceiptId2, ProductId = ProductIdG, UnitsPurchased = rnd.Next(1, 53) },
-                    new Item {ReceiptId = ReceiptId2, ProductId = ProductIdH, UnitsPurchased = rnd.Next(1, 53) },
-                    new Item {ReceiptId = ReceiptId2, ProductId = ProductIdI, UnitsPurchased = rnd.Next(1, 53) },
+                    new Item { ReceiptId = ReceiptId2, ProductId = ProductIdB, UnitsPurchased = rnd.Next(1, 53) },
+                    new Item { ReceiptId = ReceiptId2, ProductId = ProductIdC, UnitsPurchased = rnd.Next(1, 53) },
+                    new Item { ReceiptId = ReceiptId2, ProductId = ProductIdD, UnitsPurchased = rnd.Next(1, 53) },
+                    new Item { ReceiptId = ReceiptId2, ProductId = ProductIdE, UnitsPurchased = rnd.Next(1, 53) },
+                    new Item { ReceiptId = ReceiptId2, ProductId = ProductIdF, UnitsPurchased = rnd.Next(1, 53) },
+                    new Item { ReceiptId = ReceiptId2, ProductId = ProductIdG, UnitsPurchased = rnd.Next(1, 53) },
+                    new Item { ReceiptId = ReceiptId2, ProductId = ProductIdH, UnitsPurchased = rnd.Next(1, 53) },
+                    new Item { ReceiptId = ReceiptId2, ProductId = ProductIdI, UnitsPurchased = rnd.Next(1, 53) },
 
                     // The third receipt
-                    new Item {ReceiptId = ReceiptId3, ProductId = ProductIdA, UnitsPurchased = rnd.Next(1, 53) },
-                    new Item {ReceiptId = ReceiptId3, ProductId = ProductIdB, UnitsPurchased = rnd.Next(1, 53) },
-                    new Item {ReceiptId = ReceiptId3, ProductId = ProductIdC, UnitsPurchased = rnd.Next(1, 53) },
-                    new Item {ReceiptId = ReceiptId3, ProductId = ProductIdD, UnitsPurchased = rnd.Next(1, 53) },
-                    new Item {ReceiptId = ReceiptId3, ProductId = ProductIdH, UnitsPurchased = rnd.Next(1, 53) },
-                    new Item {ReceiptId = ReceiptId3, ProductId = ProductIdI, UnitsPurchased = rnd.Next(1, 53) },
-                    new Item {ReceiptId = ReceiptId3, ProductId = ProductIdJ, UnitsPurchased = rnd.Next(1, 53) },
+                    new Item { ReceiptId = ReceiptId3, ProductId = ProductIdA, UnitsPurchased = rnd.Next(1, 53) },
+                    new Item { ReceiptId = ReceiptId3, ProductId = ProductIdB, UnitsPurchased = rnd.Next(1, 53) },
+                    new Item { ReceiptId = ReceiptId3, ProductId = ProductIdC, UnitsPurchased = rnd.Next(1, 53) },
+                    new Item { ReceiptId = ReceiptId3, ProductId = ProductIdD, UnitsPurchased = rnd.Next(1, 53) },
+                    new Item { ReceiptId = ReceiptId3, ProductId = ProductIdH, UnitsPurchased = rnd.Next(1, 53) },
+                    new Item { ReceiptId = ReceiptId3, ProductId = ProductIdI, UnitsPurchased = rnd.Next(1, 53) },
+                    new Item { ReceiptId = ReceiptId3, ProductId = ProductIdJ, UnitsPurchased = rnd.Next(1, 53) },
 
                     // The fourth receipt
-                    new Item {ReceiptId = ReceiptId4, ProductId = ProductIdD, UnitsPurchased = rnd.Next(1, 53) },
-                    new Item {ReceiptId = ReceiptId4, ProductId = ProductIdE, UnitsPurchased = rnd.Next(1, 53) },
-                    new Item {ReceiptId = ReceiptId4, ProductId = ProductIdF, UnitsPurchased = rnd.Next(1, 53) },
-                    new Item {ReceiptId = ReceiptId4, ProductId = ProductIdG, UnitsPurchased = rnd.Next(1, 53) },
-                    new Item {ReceiptId = ReceiptId4, ProductId = ProductIdH, UnitsPurchased = rnd.Next(1, 53) }
+                    new Item { ReceiptId = ReceiptId4, ProductId = ProductIdD, UnitsPurchased = rnd.Next(1, 53) },
+                    new Item { ReceiptId = ReceiptId4, ProductId = ProductIdE, UnitsPurchased = rnd.Next(1, 53) },
+                    new Item { ReceiptId = ReceiptId4, ProductId = ProductIdF, UnitsPurchased = rnd.Next(1, 53) },
+                    new Item { ReceiptId = ReceiptId4, ProductId = ProductIdG, UnitsPurchased = rnd.Next(1, 53) },
+                    new Item { ReceiptId = ReceiptId4, ProductId = ProductIdH, UnitsPurchased = rnd.Next(1, 53) }
                 );
                 db.SaveChanges();
             }
             //----------------------------------------------------------------------------------------------------
+
+            //----------------------------------------------------------------------------------------------------
+            // Load up the Consumptions table
+            if (!db.Consumptions.Any())
+            {
+                db.Consumptions.AddRange(
+                    new Consumption { ApplicationUserId = PhilipsId, ProductId = ProductIdA, UnitsPurchased = 0, UnitsConsumed = 0, ConsumptionDays = 0, ConsumptionRate = 0, LastPurchaseDate = Convert.ToDateTime("1/1/1"), LastPurchaseUnits = 0, EmptyDate = Convert.ToDateTime("1/1/1"), DaysRemaining = 0},
+                    new Consumption { ApplicationUserId = PhilipsId, ProductId = ProductIdB, UnitsPurchased = 0, UnitsConsumed = 0, ConsumptionDays = 0, ConsumptionRate = 0, LastPurchaseDate = Convert.ToDateTime("1/1/1"), LastPurchaseUnits = 0, EmptyDate = Convert.ToDateTime("1/1/1"), DaysRemaining = 0 },
+                    new Consumption { ApplicationUserId = PhilipsId, ProductId = ProductIdC, UnitsPurchased = 0, UnitsConsumed = 0, ConsumptionDays = 0, ConsumptionRate = 0, LastPurchaseDate = Convert.ToDateTime("1/1/1"), LastPurchaseUnits = 0, EmptyDate = Convert.ToDateTime("1/1/1"), DaysRemaining = 0 },
+                    new Consumption { ApplicationUserId = PhilipsId, ProductId = ProductIdD, UnitsPurchased = 0, UnitsConsumed = 0, ConsumptionDays = 0, ConsumptionRate = 0, LastPurchaseDate = Convert.ToDateTime("1/1/1"), LastPurchaseUnits = 0, EmptyDate = Convert.ToDateTime("1/1/1"), DaysRemaining = 0 },
+                    new Consumption { ApplicationUserId = PhilipsId, ProductId = ProductIdE, UnitsPurchased = 0, UnitsConsumed = 0, ConsumptionDays = 0, ConsumptionRate = 0, LastPurchaseDate = Convert.ToDateTime("1/1/1"), LastPurchaseUnits = 0, EmptyDate = Convert.ToDateTime("1/1/1"), DaysRemaining = 0 },
+                    new Consumption { ApplicationUserId = PhilipsId, ProductId = ProductIdF, UnitsPurchased = 0, UnitsConsumed = 0, ConsumptionDays = 0, ConsumptionRate = 0, LastPurchaseDate = Convert.ToDateTime("1/1/1"), LastPurchaseUnits = 0, EmptyDate = Convert.ToDateTime("1/1/1"), DaysRemaining = 0 },
+                    new Consumption { ApplicationUserId = PhilipsId, ProductId = ProductIdG, UnitsPurchased = 0, UnitsConsumed = 0, ConsumptionDays = 0, ConsumptionRate = 0, LastPurchaseDate = Convert.ToDateTime("1/1/1"), LastPurchaseUnits = 0, EmptyDate = Convert.ToDateTime("1/1/1"), DaysRemaining = 0 },
+                    new Consumption { ApplicationUserId = PhilipsId, ProductId = ProductIdH, UnitsPurchased = 0, UnitsConsumed = 0, ConsumptionDays = 0, ConsumptionRate = 0, LastPurchaseDate = Convert.ToDateTime("1/1/1"), LastPurchaseUnits = 0, EmptyDate = Convert.ToDateTime("1/1/1"), DaysRemaining = 0 },
+                    new Consumption { ApplicationUserId = MikesId, ProductId = ProductIdI, UnitsPurchased = 0, UnitsConsumed = 0, ConsumptionDays = 0, ConsumptionRate = 0, LastPurchaseDate = Convert.ToDateTime("1/1/1"), LastPurchaseUnits = 0, EmptyDate = Convert.ToDateTime("1/1/1"), DaysRemaining = 0 },
+                    new Consumption { ApplicationUserId = MikesId, ProductId = ProductIdJ, UnitsPurchased = 0, UnitsConsumed = 0, ConsumptionDays = 0, ConsumptionRate = 0, LastPurchaseDate = Convert.ToDateTime("1/1/1"), LastPurchaseUnits = 0, EmptyDate = Convert.ToDateTime("1/1/1"), DaysRemaining = 0 }
+                );
+                db.SaveChanges();
+            }
+            //----------------------------------------------------------------------------------------------------
+
+
         }
     }
 }

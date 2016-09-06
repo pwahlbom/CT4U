@@ -1,11 +1,12 @@
-﻿using CT4U.Models;
+﻿using CT4U.Data;
+using CT4U.Models;
 using System.Linq;
 
 namespace CT4U.Infrastructure
 {
     public class ReceiptRepository : GenericRepository<Receipt>
     {
-        public ReceiptRepository(Data.ApplicationDbContext db) : base(db)
+        public ReceiptRepository(ApplicationDbContext db) : base(db)
         {
         }
 

@@ -8,7 +8,7 @@ using CT4U.Data;
 namespace CT4U.Migrations
 {
     [DbContext(typeof(ApplicationDbContext))]
-    [Migration("20160901153055_start")]
+    [Migration("20160905175542_start")]
     partial class start
     {
         protected override void BuildTargetModel(ModelBuilder modelBuilder)
@@ -92,6 +92,37 @@ namespace CT4U.Migrations
                         .HasName("UserNameIndex");
 
                     b.ToTable("AspNetUsers");
+                });
+
+            modelBuilder.Entity("CT4U.Models.Consumption", b =>
+                {
+                    b.Property<string>("ApplicationUserId");
+
+                    b.Property<int>("ProductId");
+
+                    b.Property<decimal>("ConsumptionDays");
+
+                    b.Property<decimal>("ConsumptionRate");
+
+                    b.Property<decimal>("DaysRemaining");
+
+                    b.Property<DateTime>("EmptyDate");
+
+                    b.Property<DateTime>("LastPurchaseDate");
+
+                    b.Property<decimal>("LastPurchaseUnits");
+
+                    b.Property<decimal>("UnitsConsumed");
+
+                    b.Property<decimal>("UnitsPurchased");
+
+                    b.HasKey("ApplicationUserId", "ProductId");
+
+                    b.HasIndex("ApplicationUserId");
+
+                    b.HasIndex("ProductId");
+
+                    b.ToTable("Consumptions");
                 });
 
             modelBuilder.Entity("CT4U.Models.Item", b =>
@@ -252,6 +283,19 @@ namespace CT4U.Migrations
                     b.HasKey("UserId", "LoginProvider", "Name");
 
                     b.ToTable("AspNetUserTokens");
+                });
+
+            modelBuilder.Entity("CT4U.Models.Consumption", b =>
+                {
+                    b.HasOne("CT4U.Models.ApplicationUser", "ApplicationUser")
+                        .WithMany()
+                        .HasForeignKey("ApplicationUserId")
+                        .OnDelete(DeleteBehavior.Cascade);
+
+                    b.HasOne("CT4U.Models.Product", "Product")
+                        .WithMany()
+                        .HasForeignKey("ProductId")
+                        .OnDelete(DeleteBehavior.Cascade);
                 });
 
             modelBuilder.Entity("CT4U.Models.Item", b =>

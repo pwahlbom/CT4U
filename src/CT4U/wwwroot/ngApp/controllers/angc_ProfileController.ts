@@ -10,8 +10,8 @@
         }
 
         // CREATE ----------------------------------------------------------------------------------------------------
-        public addUser(object) {
-            this.$http.post('api/users', object).then((response) => {
+        public addUser(model) {
+            this.$http.post('api/users', model).then((response) => {
                 this.$state.reload();
             });
         }

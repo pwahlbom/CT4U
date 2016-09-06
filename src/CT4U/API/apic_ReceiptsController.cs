@@ -21,9 +21,9 @@ namespace CT4U.API
         // CREATE ----------------------------------------------------------------------------------------------------
         // POST api/values
         [HttpPost]
-        public void Post([FromBody]Receipt value)
+        public void Post([FromBody]Receipt model)
         {
-            _service.AddReceipt(value, User.Identity.Name);
+            _service.AddReceipt(model, User.Identity.Name);
         }
 
         // READ ----------------------------------------------------------------------------------------------------
@@ -32,7 +32,7 @@ namespace CT4U.API
         [HttpGet]
         public IEnumerable<Receipt> GetReceipts()
         {
-            return _service.GetReceipts(User.Identity.Name);
+            return _service.GetUsersReceipts(User.Identity.Name);
         }
 
         // Read one
@@ -46,9 +46,9 @@ namespace CT4U.API
         // UPDATE ----------------------------------------------------------------------------------------------------
         // PUT api/values/5
         [HttpPut("{id}")]
-        public void Put([FromBody]Receipt value)
+        public void Put([FromBody]Receipt model)
         {
-            _service.UpdateReceipt(value);
+            _service.UpdateReceipt(model);
         }
 
         // DELETE ----------------------------------------------------------------------------------------------------

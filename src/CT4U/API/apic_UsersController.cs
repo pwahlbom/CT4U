@@ -22,9 +22,9 @@ namespace CT4U.API
         // CREATE ----------------------------------------------------------------------------------------------------
         // POST api/values
         [HttpPost]
-        public void Post([FromBody]ApplicationUser value)
+        public void Post([FromBody]ApplicationUser model)
         {
-            _service.AddUser(value);
+            _service.AddUser(model);
         }
 
         // READ ----------------------------------------------------------------------------------------------------
@@ -52,9 +52,9 @@ namespace CT4U.API
         // UPDATE ----------------------------------------------------------------------------------------------------
         // PUT api/values/5
         [HttpPut("{id}")]
-        public void Put([FromBody]ApplicationUser value)
+        public void Put([FromBody]ApplicationUser model)
         {
-            _service.UpdateUser(value);
+            _service.UpdateUser(model);
         }
 
         // DELETE ----------------------------------------------------------------------------------------------------

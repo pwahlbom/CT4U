@@ -2,34 +2,46 @@
 <ArrayOfArrayOfArrayOfString xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xsd="http://www.w3.org/2001/XMLSchema">
   <ArrayOfArrayOfString>
     <ArrayOfString>
-      <string>c:\users\philip\documents\sourcecontrol\ct4u\src\ct4u\wwwroot\ngapp\views\view_items.html</string>
+      <string>C:\Users\Philip\Documents\SourceControl\CT4U\src\CT4U\Models\Consumption.cs</string>
     </ArrayOfString>
     <ArrayOfString>
-      <string>c:\users\philip\documents\sourcecontrol\ct4u\src\ct4u\wwwroot\ngapp\controllers\angc_itemscontroller.ts</string>
+      <string>c:\users\philip\documents\sourcecontrol\ct4u\src\ct4u\wwwroot\ngapp\views\view_report.html</string>
+    </ArrayOfString>
+    <ArrayOfString>
+      <string>c:\users\philip\documents\sourcecontrol\ct4u\src\ct4u\wwwroot\ngapp\controllers\angc_reportcontroller.ts</string>
+    </ArrayOfString>
+    <ArrayOfString>
+      <string>c:\users\philip\documents\sourcecontrol\ct4u\src\ct4u\api\apic_consumptionscontroller.cs</string>
+    </ArrayOfString>
+    <ArrayOfString>
+      <string>c:\users\philip\documents\sourcecontrol\ct4u\src\ct4u\services\svc_consumptionservice.cs</string>
+    </ArrayOfString>
+    <ArrayOfString>
+      <string>c:\users\philip\documents\sourcecontrol\ct4u\src\ct4u\infrastructure\repo_consumptionrepository.cs</string>
+    </ArrayOfString>
+    <ArrayOfString>
+      <string>C:\Users\Philip\Documents\SourceControl\CT4U\src\CT4U\wwwroot\ngApp\controllers\angc_ItemsController.ts</string>
     </ArrayOfString>
     <ArrayOfString>
       <string>C:\Users\Philip\Documents\SourceControl\CT4U\src\CT4U\API\apic_ItemsController.cs</string>
     </ArrayOfString>
     <ArrayOfString>
-      <string>c:\users\philip\documents\sourcecontrol\ct4u\src\ct4u\services\svc_itemservice.cs</string>
+      <string>C:\Users\Philip\Documents\SourceControl\CT4U\src\CT4U\Services\svc_ItemService.cs</string>
     </ArrayOfString>
     <ArrayOfString>
-      <string>c:\users\philip\documents\sourcecontrol\ct4u\src\ct4u\infrastructure\repo_itemrepository.cs</string>
+      <string>C:\Users\Philip\Documents\SourceControl\CT4U\src\CT4U\API\apic_ReceiptsController.cs</string>
     </ArrayOfString>
     <ArrayOfString>
-      <string>c:\users\philip\documents\sourcecontrol\ct4u\src\ct4u\infrastructure\repo_genericrepositiory.cs</string>
+      <string>C:\Users\Philip\Documents\SourceControl\CT4U\src\CT4U\Services\svc_ReceiptService.cs</string>
     </ArrayOfString>
     <ArrayOfString>
-      <string>c:\users\philip\documents\sourcecontrol\ct4u\src\ct4u\models\item.cs</string>
+      <string>C:\Users\Philip\Documents\SourceControl\CT4U\src\CT4U\Infrastructure\repo_GenericRepositiory.cs</string>
     </ArrayOfString>
     <ArrayOfString>
-      <string>c:\users\philip\documents\sourcecontrol\ct4u\src\ct4u\wwwroot\ngapp\views\view_receipts.html</string>
+      <string>C:\Users\Philip\Documents\SourceControl\CT4U\src\CT4U\wwwroot\ngApp\views\view_Receipts.html</string>
     </ArrayOfString>
     <ArrayOfString>
-      <string>c:\users\philip\documents\sourcecontrol\ct4u\src\ct4u\api\apic_receiptscontroller.cs</string>
-    </ArrayOfString>
-    <ArrayOfString>
-      <string>C:\Users\Philip\Documents\SourceControl\CT4U\src\CT4U\wwwroot\ngApp\controllers\angc_ReceiptsController.ts</string>
+      <string>C:\Users\Philip\Documents\SourceControl\CT4U\src\CT4U\Data\SampleData.cs</string>
     </ArrayOfString>
   </ArrayOfArrayOfString>
 </ArrayOfArrayOfArrayOfString>

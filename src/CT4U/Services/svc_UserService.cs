@@ -42,22 +42,22 @@ namespace CT4U.Services
             return _repo.Find(id);
         }
 
-        public void AddUser(ApplicationUser value)
+        public void AddUser(ApplicationUser model)
         {
-            _repo.Add(value);
+            _repo.Add(model);
             _repo.SaveChanges();
         }
 
-        public void UpdateUser(ApplicationUser value)
+        public void UpdateUser(ApplicationUser model)
         {
-            _repo.Update(value);
+            _repo.Update(model);
             _repo.SaveChanges();
         }
 
         public void DeleteUser(string id)
         {
-            var value = _repo.Find(id);
-            _repo.Delete(value);
+            var model = _repo.Find(id);
+            _repo.Delete(model);
             _repo.SaveChanges();
         }
     }

@@ -1,7 +1,7 @@
 ﻿<h2>Receipts</h2>
-<p>
+<!--<p>
     {{receipts_controller.message}}
-</p>
+</p>-->
 <br />
 
 <!-- CREATE ------------------------------------------------------------------------------------------------------>
@@ -35,10 +35,10 @@
         <th>Note</th>
         <th>Edit</th>
         <th>Delete</th>
-        <th>Add Items</th>
+        <th>Items</th>
     </tr>
     <tr ng-repeat="receipt in receipts_controller.receipts track by $index">
-        <td>{{receipt.purchaseDate}}</td>
+        <td >{{receipt.purchaseDate | date:'mediumDate'}}</td>
         <td>{{receipt.note}}</td>
         <td><button ng-click="receipts_controller.showEdit(receipt)">Edit</button></td>
         <td><button ng-click="receipts_controller.showDelete(receipt)">Delete</button></td>
@@ -92,7 +92,7 @@
             </tr>
             <tr>
                 <td ng-show="false">{{receipts_controller.receipt.id}}</td>
-                <td>{{receipts_controller.receipt.purchaseDate}}</td>
+                <td>{{receipts_controller.receipt.purchaseDate | date:'MMM dd, yyyy'}}</td>
                 <td>{{receipts_controller.receipt.note}}</td>
                 <td><input type="submit" /></td>
             </tr>

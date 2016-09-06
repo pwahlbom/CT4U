@@ -21,9 +21,9 @@ namespace CT4U.API
         // CREATE ----------------------------------------------------------------------------------------------------
         // POST api/values
         [HttpPost]
-        public void Post([FromBody]Product value)
+        public void Post([FromBody]Product model)
         {
-            _service.AddProduct(value);
+            _service.AddProduct(model);
         }
 
         // READ ----------------------------------------------------------------------------------------------------
@@ -44,9 +44,9 @@ namespace CT4U.API
         // UPDATE ----------------------------------------------------------------------------------------------------
         // PUT api/values/5
         [HttpPut("{id}")]
-        public void Put([FromBody]Product value)
+        public void Put([FromBody]Product model)
         {
-            _service.UpdateProduct(value);
+            _service.UpdateProduct(model);
         }
 
         // DELETE ----------------------------------------------------------------------------------------------------

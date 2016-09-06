@@ -1,5 +1,40 @@
 ﻿<h2>Report</h2>
-<p>
+<!--<p>
     {{report_controller.message}}
-</p>
+</p>-->
 <br />
+
+<button ng-click="report_controller.Go()">Go</button>
+<button ng-click="report_controller.deleteUsersConsumptions()">Delete</button>
+<button ng-click="report_controller.addUsersConsumptions()">Add</button>
+
+<table class="table table-striped">
+    <tr>
+        <th ng-show="false">User ID</th>
+        <th ng-show="false">Product ID</th>
+        <th>Product</th>
+        <th>Units Purchased</th>
+        <th>Units Consumed</th>
+        <th>Days Consumed</th>
+        <th>Consumed Rate</th>
+        <th>Last Purchase Date</th>
+        <th>Last Purchase Units</th>
+        <th>Empty Date</th>
+        <th>Days Remain</th>
+    </tr>
+    <tr ng-repeat="consumption in report_controller.consumptions | orderBy:'daysRemaining'">
+        <td ng-show="false">{{consumption.applicationUserId}}</td>
+        <td ng-show="false">{{consumption.productId}}</td>
+        <td>{{consumption.productName}}</td>
+
+        <td>{{consumption.unitsPurchased}}</td>
+        <td>{{consumption.unitsConsumed}}</td>
+        <td>{{consumption.consumptionDays}}</td>
+        <td>{{consumption.consumptionRate | number: 1}}</td>
+        
+        <td>{{consumption.lastPurchaseDate | date:'MMM d'}}</td>
+        <td>{{consumption.lastPurchaseUnits}}</td>
+        <td>{{consumption.emptyDate | date:'MMM d'}}</td>
+        <td>{{consumption.daysRemaining | number: 0}}</td>
+    </tr>
+</table>

@@ -14,8 +14,8 @@
         }
 
         // CREATE ----------------------------------------------------------------------------------------------------
-        public addReceipt(object) {
-            this.$http.post('api/receipts', object).then((response) => {
+        public addReceipt(model) {
+            this.$http.post('api/receipts', model).then((response) => {
                 this.$state.reload();
             });
         }
@@ -46,7 +46,6 @@
         public deleteReceipt() {
             this.$http.delete(`api/receipts/${this.receipt.id}`).then((res) => {
                 this.$state.reload();
-                //this.$state.go('home');
             });
         }
 

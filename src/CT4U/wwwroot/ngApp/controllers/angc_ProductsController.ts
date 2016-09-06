@@ -14,8 +14,8 @@
         }
 
         // CREATE ----------------------------------------------------------------------------------------------------
-        public addProduct(object) {
-            this.$http.post('api/products', object).then((response) => {
+        public addProduct(model) {
+            this.$http.post('api/products', model).then((response) => {
                 this.$state.reload();
             });
         }

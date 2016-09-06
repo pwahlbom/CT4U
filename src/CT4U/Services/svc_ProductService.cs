@@ -27,22 +27,22 @@ namespace CT4U.Services
             return _repo.Find(id);
         }
 
-        public void AddProduct(Product value)
+        public void AddProduct(Product model)
         {
-            _repo.Add(value);
+            _repo.Add(model);
             _repo.SaveChanges();
         }
 
-        public void UpdateProduct(Product value)
+        public void UpdateProduct(Product model)
         {
-            _repo.Update(value);
+            _repo.Update(model);
             _repo.SaveChanges();
         }
 
         public void DeleteProduct(int id)
         {
-            var value = _repo.Find(id);
-            _repo.Delete(value);
+            var model = _repo.Find(id);
+            _repo.Delete(model);
             _repo.SaveChanges();
         }
     }

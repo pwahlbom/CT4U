@@ -8,7 +8,6 @@ namespace CT4U.Models
     {
         [ForeignKey("ApplicationUserId")]
         public ApplicationUser ApplicationUser { get; set; }
-
         public string ApplicationUserId { get; set; }
 
         public int Id { get; set; }

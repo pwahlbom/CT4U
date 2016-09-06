@@ -93,6 +93,37 @@ namespace CT4U.Migrations
                     b.ToTable("AspNetUsers");
                 });
 
+            modelBuilder.Entity("CT4U.Models.Consumption", b =>
+                {
+                    b.Property<string>("ApplicationUserId");
+
+                    b.Property<int>("ProductId");
+
+                    b.Property<decimal>("ConsumptionDays");
+
+                    b.Property<decimal>("ConsumptionRate");
+
+                    b.Property<decimal>("DaysRemaining");
+
+                    b.Property<DateTime>("EmptyDate");
+
+                    b.Property<DateTime>("LastPurchaseDate");
+
+                    b.Property<decimal>("LastPurchaseUnits");
+
+                    b.Property<decimal>("UnitsConsumed");
+
+                    b.Property<decimal>("UnitsPurchased");
+
+                    b.HasKey("ApplicationUserId", "ProductId");
+
+                    b.HasIndex("ApplicationUserId");
+
+                    b.HasIndex("ProductId");
+
+                    b.ToTable("Consumptions");
+                });
+
             modelBuilder.Entity("CT4U.Models.Item", b =>
                 {
                     b.Property<int>("ReceiptId");
@@ -251,6 +282,19 @@ namespace CT4U.Migrations
                     b.HasKey("UserId", "LoginProvider", "Name");
 
                     b.ToTable("AspNetUserTokens");
+                });
+
+            modelBuilder.Entity("CT4U.Models.Consumption", b =>
+                {
+                    b.HasOne("CT4U.Models.ApplicationUser", "ApplicationUser")
+                        .WithMany()
+                        .HasForeignKey("ApplicationUserId")
+                        .OnDelete(DeleteBehavior.Cascade);
+
+                    b.HasOne("CT4U.Models.Product", "Product")
+                        .WithMany()
+                        .HasForeignKey("ProductId")
+                        .OnDelete(DeleteBehavior.Cascade);
                 });
 
             modelBuilder.Entity("CT4U.Models.Item", b =>

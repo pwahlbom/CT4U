@@ -1,28 +1,146 @@
 ﻿<h2>Profile</h2>
-<p>
+<!--<p>
     {{profile_controller.message}}
-</p>
+</p>-->
 <br />
 
 <form ng-submit="profile_controller.editUser()">
-    <label>ID</label><input ng-model="profile_controller.user.id" /><br />
-    <label>User Name</label><input ng-model="profile_controller.user.userName" /><br />
-    <label>Password</label><input ng-model="profile_controller.user.passwordHash" /><br />
-    <label>First Name</label><input ng-model="profile_controller.user.firstName" /><br />
-    <label>Last Name</label><input ng-model="profile_controller.user.lastName" /><br />
-    <label>Nickname</label><input ng-model="profile_controller.user.nickname" /><br />
-    <label>Birthday</label><input ng-model="profile_controller.user.birthday" /><br />
-    <label>Mail Street1</label><input ng-model="profile_controller.user.mailStreet1" /><br />
-    <label>Street2</label><input ng-model="profile_controller.user.mailStreet2" /><br />
-    <label>City</label><input ng-model="profile_controller.user.mailCity" /><br />
-    <label>State</label><input ng-model="profile_controller.user.mailState" /><br />
-    <label>Zip</label><input ng-model="profile_controller.user.mailZip" /><br />
-    <label>Physical Street1</label><input ng-model="profile_controller.user.physicalStreet1" /><br />
-    <label>Street2</label><input ng-model="profile_controller.user.physicalStreet2" /><br />
-    <label>City</label><input ng-model="profile_controller.user.physicalCity" /><br />
-    <label>State</label><input ng-model="profile_controller.user.physicalState" /><br />
-    <label>Zip</label><input ng-model="profile_controller.user.physicalZip" /><br />
-    <br />
-
+    <table>
+        <tr>
+            <td>
+                <label>ID</label>
+            </td>
+            <td>
+                <input ng-model="profile_controller.user.id" />
+            </td>
+        </tr>
+        <tr>
+            <td>
+                <label>User Name</label>
+            </td>
+            <td>
+                <input ng-model="profile_controller.user.userName" />
+            </td>
+        </tr>
+        <tr>
+            <td>
+                <label>Password</label>
+            </td>
+            <td>
+                <input ng-model="profile_controller.user.passwordHash" />
+            </td>
+        </tr>
+        <tr>
+            <td>
+                <label>First Name</label>
+            </td>
+            <td>
+                <input ng-model="profile_controller.user.firstName" />
+            </td>
+        </tr>
+        <tr>
+            <td>
+                <label>Last Name</label>
+            </td>
+            <td>
+                <input ng-model="profile_controller.user.lastName" />
+            </td>
+        </tr>
+        <tr>
+            <td>
+                <label>Nickname</label>
+            </td>
+            <td>
+                <input ng-model="profile_controller.user.nickname" />
+            </td>
+        </tr>
+        <tr>
+            <td>
+                <label>Birthday</label>
+            </td>
+            <td>
+                <input ng-model="profile_controller.user.birthday | date:'MMM dd, yyyy'" />
+            </td>
+        </tr>
+        <tr>
+            <td>
+                <label>Mail Street1</label>
+            </td>
+            <td>
+                <input ng-model="profile_controller.user.mailStreet1" />
+            </td>
+        </tr>
+        <tr>
+            <td>
+                <label>Street2</label>
+            </td>
+            <td>
+                <input ng-model="profile_controller.user.mailStreet2" />
+            </td>
+        </tr>
+        <tr>
+            <td>
+                <label>City</label>
+            </td>
+            <td>
+                <input ng-model="profile_controller.user.mailCity" />
+            </td>
+        </tr>
+        <tr>
+            <td>
+                <label>State</label>
+            </td>
+            <td>
+                <input ng-model="profile_controller.user.mailState" />
+            </td>
+        </tr>
+        <tr>
+            <td>
+                <label>Zip</label>
+            </td>
+            <td>
+                <input ng-model="profile_controller.user.mailZip" />
+            </td>
+        </tr>
+        <tr>
+            <td>
+                <label>Physical Street1</label>
+            </td>
+            <td>
+                <input ng-model="profile_controller.user.physicalStreet1" />
+            </td>
+        </tr>
+        <tr>
+            <td>
+                <label>Street2</label>
+            </td>
+            <td>
+                <input ng-model="profile_controller.user.physicalStreet2" />
+            </td>
+        </tr>
+        <tr>
+            <td>
+                <label>City</label>
+            </td>
+            <td>
+                <input ng-model="profile_controller.user.physicalCity" />
+            </td>
+        </tr>
+        <tr>
+            <td>
+                <label>State</label>
+            </td>
+            <td>
+                <input ng-model="profile_controller.user.physicalState" />
+            </td>
+        </tr>
+        <tr>
+            <td>
+                <label>Zip</label>
+            </td>
+            <td>
+                <input ng-model="profile_controller.user.physicalZip" />
+        </tr>
+    </table>
     <input type="submit" />
 </form>

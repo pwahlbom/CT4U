@@ -27,18 +27,9 @@ namespace CT4U.Services
 
         // READ ----------------------------------------------------------------------------------------------------
         // Read all
-        public IList<Receipt> GetReceipts(string UserName)
+        public IList<Receipt> GetReceipts()
         {
-            if (UserName.Length > 0)
-            {
-                var receipts = _repo.List();
-                return (from r in receipts
-                        where r.ApplicationUser.UserName == UserName
-                        select r).ToList();
-            } else
-            {
-                return _repo.List().ToList();
-            }
+            return _repo.List().ToList();
         }
 
         // Read one
@@ -60,6 +51,15 @@ namespace CT4U.Services
             var rcpt = _repo.Find(id);
             _repo.Delete(rcpt);
             _repo.SaveChanges();
+        }
+
+        // MISCELLANEOUS ----------------------------------------------------------------------------------------------------
+        public IList<Receipt> GetUsersReceipts(string UserName)
+        {
+            var receipts = _repo.List();
+            return (from r in receipts
+                    where r.ApplicationUser.UserName == UserName
+                    select r).ToList();
         }
     }
 }

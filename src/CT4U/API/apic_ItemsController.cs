@@ -36,7 +36,8 @@ namespace CT4U.API
 
         // Get receipt's items
         [HttpGet("receiptid/{receiptid}")]
-        public IEnumerable<Item> GetReceiptsItems(int receiptid)
+        //HERE HELP  or Item both work????
+        public IEnumerable<ItemMore> GetReceiptsItems(int receiptid)
         {
             return _service.GetReceiptsItems(receiptid);
         }
@@ -44,17 +45,17 @@ namespace CT4U.API
         // CREATE ----------------------------------------------------------------------------------------------------
         // POST api/values
         [HttpPost]
-        public void Post([FromBody]Item value)
+        public void Post([FromBody]Item model)
         {
-            _service.AddItem(value);
+            _service.AddItem(model);
         }
 
         // UPDATE ----------------------------------------------------------------------------------------------------
         // PUT api/values/5
         [HttpPut]
-        public void Put([FromBody]Item value)
+        public void Put([FromBody]Item model)
         {
-            _service.UpdateItem(value);
+            _service.UpdateItem(model);
         }
 
         // DELETE ----------------------------------------------------------------------------------------------------

@@ -154,6 +154,38 @@ namespace CT4U.Migrations
                 });
 
             migrationBuilder.CreateTable(
+                name: "Consumptions",
+                columns: table => new
+                {
+                    ApplicationUserId = table.Column<string>(nullable: false),
+                    ProductId = table.Column<int>(nullable: false),
+                    ConsumptionDays = table.Column<decimal>(nullable: false),
+                    ConsumptionRate = table.Column<decimal>(nullable: false),
+                    DaysRemaining = table.Column<decimal>(nullable: false),
+                    EmptyDate = table.Column<DateTime>(nullable: false),
+                    LastPurchaseDate = table.Column<DateTime>(nullable: false),
+                    LastPurchaseUnits = table.Column<decimal>(nullable: false),
+                    UnitsConsumed = table.Column<decimal>(nullable: false),
+                    UnitsPurchased = table.Column<decimal>(nullable: false)
+                },
+                constraints: table =>
+                {
+                    table.PrimaryKey("PK_Consumptions", x => new { x.ApplicationUserId, x.ProductId });
+                    table.ForeignKey(
+                        name: "FK_Consumptions_AspNetUsers_ApplicationUserId",
+                        column: x => x.ApplicationUserId,
+                        principalTable: "AspNetUsers",
+                        principalColumn: "Id",
+                        onDelete: ReferentialAction.Cascade);
+                    table.ForeignKey(
+                        name: "FK_Consumptions_Products_ProductId",
+                        column: x => x.ProductId,
+                        principalTable: "Products",
+                        principalColumn: "Id",
+                        onDelete: ReferentialAction.Cascade);
+                });
+
+            migrationBuilder.CreateTable(
                 name: "AspNetRoleClaims",
                 columns: table => new
                 {
@@ -236,6 +268,16 @@ namespace CT4U.Migrations
                 unique: true);
 
             migrationBuilder.CreateIndex(
+                name: "IX_Consumptions_ApplicationUserId",
+                table: "Consumptions",
+                column: "ApplicationUserId");
+
+            migrationBuilder.CreateIndex(
+                name: "IX_Consumptions_ProductId",
+                table: "Consumptions",
+                column: "ProductId");
+
+            migrationBuilder.CreateIndex(
                 name: "IX_Items_ProductId",
                 table: "Items",
                 column: "ProductId");
@@ -283,6 +325,9 @@ namespace CT4U.Migrations
 
         protected override void Down(MigrationBuilder migrationBuilder)
         {
+            migrationBuilder.DropTable(
+                name: "Consumptions");
+
             migrationBuilder.DropTable(
                 name: "Items");
 

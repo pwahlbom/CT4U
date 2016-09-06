@@ -25,11 +25,11 @@
         }
 
         // CREATE ----------------------------------------------------------------------------------------------------
-        public addItem(object) {
+        public addItem(model) {
             // Tack on the receiptid here since we're not gettting it from the page
-            object.receiptId = this.intReceiptID;
+            model.receiptId = this.intReceiptID;
 
-            this.$http.post('api/items', object).then((response) => {
+            this.$http.post('api/items', model).then((response) => {
                 this.$state.reload();
             });
         }
@@ -91,8 +91,6 @@
                 note: currentItem.note
             }
             this.item = tempItem;
-            console.log(this.item);
-            console.log(this.item.id);
         }
 
         public showDelete(currentItem) {

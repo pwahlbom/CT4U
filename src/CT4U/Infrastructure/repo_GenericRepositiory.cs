@@ -48,5 +48,14 @@ namespace CT4U.Infrastructure
         {
             _db.Dispose();
         }
+
+        //public ApplicationUser GetUser(string UserName)
+        //{
+        //    var User = (from u in _db.Users
+        //                  where u.UserName == UserName
+        //                  select u).FirstOrDefault();
+
+        //    return User;
+        //}
     }
 }
