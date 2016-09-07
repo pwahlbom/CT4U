@@ -46,5 +46,20 @@
     <ArrayOfString>
       <string>c:\users\philip\documents\sourcecontrol\ct4u\src\ct4u\infrastructure\repo_userrepositiory.cs</string>
     </ArrayOfString>
+    <ArrayOfString>
+      <string>C:\Users\Philip\Documents\SourceControl\CT4U\src\CT4U\API\apic_ProductsController.cs</string>
+    </ArrayOfString>
+    <ArrayOfString>
+      <string>C:\Users\Philip\Documents\SourceControl\CT4U\src\CT4U\wwwroot\ngApp\controllers\angc_ProfileController.ts</string>
+    </ArrayOfString>
+    <ArrayOfString>
+      <string>C:\Users\Philip\Documents\SourceControl\CT4U\src\CT4U\API\apic_UsersController.cs</string>
+    </ArrayOfString>
+    <ArrayOfString>
+      <string>C:\Users\Philip\Documents\SourceControl\CT4U\src\CT4U\Services\svc_UserService.cs</string>
+    </ArrayOfString>
+    <ArrayOfString>
+      <string>C:\Users\Philip\Documents\SourceControl\CT4U\src\CT4U\Services\svc_ItemService.cs</string>
+    </ArrayOfString>
   </ArrayOfArrayOfString>
 </ArrayOfArrayOfArrayOfString>
