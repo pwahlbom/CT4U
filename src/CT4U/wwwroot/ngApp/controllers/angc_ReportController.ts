@@ -1,5 +1,6 @@
 ﻿namespace CT4U.Controllers {
     export class ReportController {
+
         public message = 'Hello from the REPORTS controller!';
 
         public consumptions;
@@ -8,16 +9,13 @@
         public user;
 
         constructor(public $http: ng.IHttpService, public $state: ng.ui.IStateService, public $stateParams: ng.ui.IStateParamsService) {
-            // Here
-            this.getLoggedInUser();
-            this.getReports();
-            //this.deleteUsersConsumptions();
-            //this.addUsersConsumptions();
+            /// Here2
+            this.refreshUsersConsumptions();
         }
 
         // CREATE ----------------------------------------------------------------------------------------------------
         public addReport(model) {
-            this.$http.post('api/consumptions', model).then((response) => {
+            this.$http.post("api/consumptions", model).then((response) => {
                 this.$state.reload();
             });
         }
@@ -25,7 +23,7 @@
         // READ ----------------------------------------------------------------------------------------------------
         // Read all
         public getReports() {
-            this.$http.get('api/consumptions').then((response) => {
+            this.$http.get("api/consumptions").then((response) => {
                 this.consumptions = response.data;
             });
         }
@@ -34,13 +32,6 @@
         public getReport() {
             this.$http.get(`api/consumptions/${this.$stateParams['id']}`).then((res) => {
                 this.consumption = res.data;
-            });
-        }
-
-        // Read one by name
-        public getLoggedInUser() {
-            this.$http.get('api/users/findloggedinuser').then((response) => {
-                this.user = response.data;
             });
         }
 
@@ -59,20 +50,18 @@
         }
 
         // MISCELLANEOUS ----------------------------------------------------------------------------------------------------
-        public Go() {
-            this.deleteUsersConsumptions();
-            this.addUsersConsumptions();
-        }
+        /// Here8
+        public refreshUsersConsumptions() {
+            this.$http.delete("api/consumptions/deleteusersconsumptions").then((res) => {
 
-        public addUsersConsumptions() {
-            this.$http.delete(`api/consumptions/addusersconsumptions/${this.user.id}`).then((res) => {
-                this.$state.reload();
+                this.addUsersConsumptions();
             });
         }
 
-        public deleteUsersConsumptions() {
-            this.$http.delete(`api/consumptions/deleteusersconsumptions/${this.user.id}`).then((res) => {
-                this.$state.reload();
+        // Here1a
+        public addUsersConsumptions() {
+            this.$http.post("api/consumptions/addusersconsumptions", 0).then((res) => {
+                this.getReports();
             });
         }
     }

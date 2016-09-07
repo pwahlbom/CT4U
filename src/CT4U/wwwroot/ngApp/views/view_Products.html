@@ -42,7 +42,7 @@
         <th>Edit</th>
         <th>Delete</th>
     </tr>
-    <tr ng-repeat="product in products_controller.products track by $index">
+    <tr ng-repeat="product in products_controller.products | orderBy:'name'">
         <td>{{product.name}}</td>
         <td>{{product.measurementUnits}}</td>
         <td>{{product.note}}</td>

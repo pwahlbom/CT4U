@@ -8,7 +8,6 @@ using System.Threading.Tasks;
 
 namespace CT4U.API
 {
-
     [Route("api/[controller]")]
     public class ItemsController : Controller
     {

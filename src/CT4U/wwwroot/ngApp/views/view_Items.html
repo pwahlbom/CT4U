@@ -20,7 +20,7 @@
             <td ng-show="false">{{items_controller.intReceiptID}}</td>
             <td>
                 <select ng-model="addItem.productId" name="products" ng-change="items_controller.UpdateMeasurementUnits(addItem.productId)" placeholder="Product" >
-                    <option ng-repeat="product in items_controller.products" value="{{product.id}}">{{product.name}}</option>
+                    <option ng-repeat="product in items_controller.products | orderBy:'name'" value="{{product.id}}">{{product.name}}</option>
                 </select>
             </td>
             <td>

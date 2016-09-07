@@ -10,10 +10,11 @@ namespace CT4U.Services
 
     public class ConsumptionService
     {
+        /// Here4
         private ConsumptionRepository _crepo;
         private ReceiptRepository _rrepo;
         private ItemRepository _irepo;
-
+        
         public ConsumptionService(ConsumptionRepository crepo, ReceiptRepository rrepo, ItemRepository irepo)
         {
             _crepo = crepo;
@@ -36,9 +37,10 @@ namespace CT4U.Services
         }
 
         // Read one
-        public Consumption FindConsumption(string applicationuserid, int productid)
+        public Consumption FindConsumption(string username, int productid)
         {
-            return _crepo.Find(applicationuserid, productid);
+            var UserId = _rrepo.GetUser(username).Id;
+            return _crepo.Find(UserId, productid);
         }
 
         // UPDATE ----------------------------------------------------------------------------------------------------
@@ -49,9 +51,11 @@ namespace CT4U.Services
         }
 
         // DELETE ----------------------------------------------------------------------------------------------------
-        public void DeleteConsumption(string applicationuserid, int productid)
+        public void DeleteConsumption(string username, int productid)
         {
-            var model = _crepo.Find(applicationuserid, productid);
+            var UserId = _rrepo.GetUser(username).Id;
+
+            var model = _crepo.Find(UserId, productid);
             _crepo.Delete(model);
             _crepo.SaveChanges();
         }
@@ -80,18 +84,19 @@ namespace CT4U.Services
 
         }
 
-        // Here
-        public void AddUsersConsumptions(string applicationuserid)
+        /// Here5
+        public void AddUsersConsumptions(string username)
         {
             var receipts = _rrepo.List().ToList();
             var items = _irepo.List().ToList();
             var receiptid = 0;
             var productid = 0;
+            var UserId = _rrepo.GetUser(username).Id;
 
             // Loop through the reciepts and find all the receipts for this userid
             foreach (var receipt in receipts)
             {
-                if (receipt.ApplicationUserId == applicationuserid)
+                if (receipt.ApplicationUserId == UserId)
                 {
                     receiptid = receipt.Id;
 
@@ -103,9 +108,9 @@ namespace CT4U.Services
                         {
                             productid = item.ProductId;
 
-                            // Here
+                            /// Here3
                             // See if there is alread a consumption in the Db for this userid / productid key
-                            var WorkingConsumption = _crepo.Find(applicationuserid, productid);
+                            var WorkingConsumption = _crepo.Find(UserId, productid);
 
                             // If we didn't return a Consumption with that Uid / Pid key, then we need to create on
                             // Otherwise, we'll do some checks and update the existing Consumption in the else below
@@ -115,7 +120,7 @@ namespace CT4U.Services
 
                                 WorkingConsumption = new Consumption
                                 {
-                                    ApplicationUserId = applicationuserid,
+                                    ApplicationUserId = UserId,
                                     ProductId = item.ProductId,
                                     UnitsPurchased = item.UnitsPurchased,
                                     UnitsConsumed = 0,
@@ -172,14 +177,16 @@ namespace CT4U.Services
             }
         }
 
-        public void DeleteUsersConsumptions(string applicationuserid)
+        public void DeleteUsersConsumptions(string username)
         {
+            var UserId = _rrepo.GetUser(username).Id;
+
             // Loop through the consumptions table a delete each of the logged user's consumptions
             var usersconsumptions = _crepo.List().ToList();
 
             foreach (var consumption in usersconsumptions)
             {
-                if (consumption.ApplicationUserId == applicationuserid)
+                if (consumption.ApplicationUserId == UserId)
                 {
                     _crepo.Delete(consumption);
                     _crepo.SaveChanges();

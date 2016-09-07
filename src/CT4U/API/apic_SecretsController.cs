@@ -6,8 +6,6 @@ using System.Linq;
 using System.Security.Claims;
 using System.Threading.Tasks;
 
-// For more information on enabling Web API for empty projects, visit http://go.microsoft.com/fwlink/?LinkID=397860
-
 namespace CT4U.API
 {
     [Route("api/[controller]")]

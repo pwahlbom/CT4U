@@ -26,12 +26,6 @@ namespace CT4U.Infrastructure
             return _db.Set<T>();
         }
 
-        // Read the users table
-        public IQueryable<ApplicationUser> GetUsers()
-        {
-            return _db.Users;
-        }
-
         // DELETE ----------------------------------------------------------------------------------------------------
         public void Delete(T entity)
         {
@@ -49,13 +43,12 @@ namespace CT4U.Infrastructure
             _db.Dispose();
         }
 
-        //public ApplicationUser GetUser(string UserName)
-        //{
-        //    var User = (from u in _db.Users
-        //                  where u.UserName == UserName
-        //                  select u).FirstOrDefault();
-
-        //    return User;
-        //}
+        public ApplicationUser GetUser(string username)
+        {
+            var User = (from u in _db.Users
+                        where u.UserName == username
+                        select u).FirstOrDefault();
+            return User;
+        }
     }
 }

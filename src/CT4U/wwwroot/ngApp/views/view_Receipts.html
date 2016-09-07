@@ -37,7 +37,7 @@
         <th>Delete</th>
         <th>Items</th>
     </tr>
-    <tr ng-repeat="receipt in receipts_controller.receipts track by $index">
+    <tr ng-repeat="receipt in receipts_controller.receipts | orderBy:'purchaseDate'">
         <td >{{receipt.purchaseDate | date:'mediumDate'}}</td>
         <td>{{receipt.note}}</td>
         <td><button ng-click="receipts_controller.showEdit(receipt)">Edit</button></td>

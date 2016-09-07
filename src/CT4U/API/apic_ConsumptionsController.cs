@@ -6,11 +6,8 @@ using Microsoft.AspNetCore.Mvc;
 using CT4U.Services;
 using CT4U.Models;
 
-// For more information on enabling Web API for empty projects, visit http://go.microsoft.com/fwlink/?LinkID=397860
-
 namespace CT4U.API
 {
-
     [Route("api/[controller]")]
     public class ConsumptionsController : Controller
     {
@@ -29,6 +26,13 @@ namespace CT4U.API
             _service.AddConsumption(model);
         }
 
+        // POST api/consumptions/addusersconsumptions
+        [HttpPost("addusersconsumptions")]
+        public void AddUsersConsumptions()
+        {
+            _service.AddUsersConsumptions(User.Identity.Name);
+        }
+
         // READ ----------------------------------------------------------------------------------------------------
         // Read all
         // GET: api/consumptions
@@ -40,10 +44,10 @@ namespace CT4U.API
 
         // Read one
         // GET api/consumptions/5
-        [HttpGet("{applicationuserid}/{productid}")]
-        public Consumption Get(string applicationuserid, int productid)
+        [HttpGet("{productid}")]
+        public Consumption Get(int productid)
         {
-            return _service.FindConsumption(applicationuserid, productid);
+            return _service.FindConsumption(User.Identity.Name, productid);
         }
 
         // UPDATE ----------------------------------------------------------------------------------------------------
@@ -56,26 +60,21 @@ namespace CT4U.API
 
         // DELETE ----------------------------------------------------------------------------------------------------
         // DELETE api/consumptions/5/5
-        [HttpDelete("{applicationuserid}/{productid}")]
-        public void Delete(string applicationuserid, int productid)
+        [HttpDelete("{productid}")]
+        public void Delete(int productid)
         {
-            _service.DeleteConsumption(applicationuserid, productid);
+            _service.DeleteConsumption(User.Identity.Name, productid);
         }
 
         // MISCELLANEOUS ----------------------------------------------------------------------------------------------------
-        // DELETE api/consumptions/deleteusersconsumptions/5
-        // Here why httpdelete?????
-        [HttpDelete("addusersconsumptions/{applicationuserid}")]
-        public void AddUsersConsumptions(string applicationuserid)
-        {
-            _service.AddUsersConsumptions(applicationuserid);
-        }
 
-        // DELETE api/consumptions/deleteusersconsumptions/5
-        [HttpDelete("deleteusersconsumptions/{applicationuserid}")]
-        public void DeleteUsersConsumptions(string applicationuserid)
+        /// Here9
+        // DELETE api/consumptions/deleteusersconsumptions
+        /// Here1b why httpdelete?????
+        [HttpDelete("deleteusersconsumptions")]
+        public void DeleteUsersConsumptions()
         {
-            _service.DeleteUsersConsumptions(applicationuserid);
+            _service.DeleteUsersConsumptions(User.Identity.Name);
         }
     }
 }

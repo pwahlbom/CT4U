@@ -15,11 +15,9 @@ namespace CT4U.Services
         }
 
         // CREATE ----------------------------------------------------------------------------------------------------
-        public void AddReceipt(Receipt rcpt, string UserName)
+        public void AddReceipt(Receipt rcpt, string username)
         {
-            var UserId = (from u in _repo.GetUsers()
-                          where u.UserName == UserName
-                          select u).FirstOrDefault().Id;
+            var UserId = _repo.GetUser(username).Id;
             rcpt.ApplicationUserId = UserId;
             _repo.Add(rcpt);
             _repo.SaveChanges();
@@ -54,11 +52,11 @@ namespace CT4U.Services
         }
 
         // MISCELLANEOUS ----------------------------------------------------------------------------------------------------
-        public IList<Receipt> GetUsersReceipts(string UserName)
+        public IList<Receipt> GetUsersReceipts(string username)
         {
             var receipts = _repo.List();
             return (from r in receipts
-                    where r.ApplicationUser.UserName == UserName
+                    where r.ApplicationUser.UserName == username
                     select r).ToList();
         }
     }
