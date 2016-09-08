@@ -17,7 +17,10 @@ namespace CT4U.Infrastructure
         public Consumption Find(string userid, int productid)
         {
 
-            return (from model in _db.Consumptions where model.ApplicationUserId == userid && model.ProductId == productid select model).FirstOrDefault();
+            return (from model 
+                    in _db.Consumptions
+                    where model.ApplicationUserId == userid && model.ProductId == productid
+                    select model).FirstOrDefault();
         }
 
         public void Update(Consumption model)

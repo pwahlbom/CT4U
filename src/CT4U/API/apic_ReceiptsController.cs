@@ -32,7 +32,6 @@ namespace CT4U.API
         [HttpGet]
         public IEnumerable<Receipt> GetReceipts()
         {
-            /// Here7
             return _service.GetUsersReceipts(User.Identity.Name);
         }
 

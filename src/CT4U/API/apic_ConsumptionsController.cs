@@ -37,7 +37,7 @@ namespace CT4U.API
         // Read all
         // GET: api/consumptions
         [HttpGet]
-        public IEnumerable<Consumption> GetConsumptions()
+        public IEnumerable<ConsumptionMore> GetConsumptions()
         {
             return _service.GetUsersConsumptions(User.Identity.Name);
         }
@@ -67,10 +67,7 @@ namespace CT4U.API
         }
 
         // MISCELLANEOUS ----------------------------------------------------------------------------------------------------
-
-        /// Here9
         // DELETE api/consumptions/deleteusersconsumptions
-        /// Here1b why httpdelete?????
         [HttpDelete("deleteusersconsumptions")]
         public void DeleteUsersConsumptions()
         {

@@ -20,7 +20,6 @@ namespace CT4U.Models
         public string Note { get; set; }
     }
 
-    /// Here6 
     public class ItemMore : Item
     {
         public string ProductName { get; set; }

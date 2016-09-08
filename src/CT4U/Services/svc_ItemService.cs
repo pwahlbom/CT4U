@@ -30,7 +30,6 @@ namespace CT4U.Services
         public IList<ItemMore> GetReceiptsItems(int receiptId)
         {
             var items = _irepo.List();
-            //var products = _prepo.List();
 
             return (from i in items
                     where i.ReceiptId == receiptId
@@ -45,22 +44,6 @@ namespace CT4U.Services
                         ProductName = i.Product.Name,
                         MeasurementUnits = i.Product.MeasurementUnits
                     }).ToList();
-
-            //return (from i in items
-            //        join p in products
-            //        on i.ProductId equals p.Id
-            //        where i.ReceiptId == receiptId
-            //        select new ItemMore
-            //        {
-            //            Receipt = i.Receipt,
-            //            ReceiptId = i.ReceiptId,
-            //            Product = i.Product,
-            //            ProductId = i.ProductId,
-            //            UnitsPurchased = i.UnitsPurchased,
-            //            Note = i.Note,
-            //            ProductName = p.Name,
-            //            MeasurementUnits = p.MeasurementUnits
-            //        }).ToList();
         }
 
         public void AddItem(Item model)

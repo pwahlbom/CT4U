@@ -9,7 +9,6 @@
         public user;
 
         constructor(public $http: ng.IHttpService, public $state: ng.ui.IStateService, public $stateParams: ng.ui.IStateParamsService) {
-            /// Here2
             this.refreshUsersConsumptions();
         }
 
@@ -50,18 +49,12 @@
         }
 
         // MISCELLANEOUS ----------------------------------------------------------------------------------------------------
-        /// Here8
         public refreshUsersConsumptions() {
             this.$http.delete("api/consumptions/deleteusersconsumptions").then((res) => {
 
-                this.addUsersConsumptions();
-            });
-        }
-
-        // Here1a
-        public addUsersConsumptions() {
-            this.$http.post("api/consumptions/addusersconsumptions", 0).then((res) => {
-                this.getReports();
+                this.$http.post("api/consumptions/addusersconsumptions", 0).then((res) => {
+                    this.getReports();
+                });
             });
         }
     }

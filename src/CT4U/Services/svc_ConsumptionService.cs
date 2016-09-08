@@ -10,7 +10,6 @@ namespace CT4U.Services
 
     public class ConsumptionService
     {
-        /// Here4
         private ConsumptionRepository _crepo;
         private ReceiptRepository _rrepo;
         private ItemRepository _irepo;
@@ -65,17 +64,20 @@ namespace CT4U.Services
         {
             var consumptions = _crepo.List();
 
-            return (from c in consumptions
+            return (from c 
+                    in consumptions
                     where c.ApplicationUser.UserName == UserName
-                    select new ConsumptionMore
+                    select  new ConsumptionMore
                     {
                         ApplicationUserId = c.ApplicationUserId,
                         ProductId = c.ProductId,
                         ProductName = c.Product.Name,
+
                         UnitsPurchased = c.UnitsPurchased,
                         UnitsConsumed = c.UnitsConsumed,
                         ConsumptionDays = c.ConsumptionDays,
                         ConsumptionRate = c.ConsumptionRate,
+
                         LastPurchaseDate = c.LastPurchaseDate,
                         LastPurchaseUnits = c.LastPurchaseUnits,
                         EmptyDate = c.EmptyDate,
@@ -84,7 +86,6 @@ namespace CT4U.Services
 
         }
 
-        /// Here5
         public void AddUsersConsumptions(string username)
         {
             var receipts = _rrepo.List().ToList();
@@ -108,11 +109,10 @@ namespace CT4U.Services
                         {
                             productid = item.ProductId;
 
-                            /// Here3
                             // See if there is alread a consumption in the Db for this userid / productid key
                             var WorkingConsumption = _crepo.Find(UserId, productid);
 
-                            // If we didn't return a Consumption with that Uid / Pid key, then we need to create on
+                            // If we didn't return a Consumption with that Uid / Pid key, then we need to create one
                             // Otherwise, we'll do some checks and update the existing Consumption in the else below
                             if (WorkingConsumption == null)
                             {
