@@ -1,33 +1,21 @@
-﻿<h1>Consumables Tracking 4U!</h1>
+﻿<img src="../images/onlinelogomaker-090716-2337-8919.png" />
 
-<div>
-    <a ui-sref="home">Home</a> /
-    <a ui-sref="secret">Secret</a> / 
-    <a ui-sref="about">About</a> / 
-    <a ng-show="!account.isLoggedIn()" ui-sref="login">Login</a>
-    <a ng-show="account.isLoggedIn()" ui-sref="home" ng-click="account.logout()">Logout</a>
-
-    <!--Show these menu items if the user IS logged in-->
+<nav class="nav nav-inline text-center">
+    <a class="nav-link footer" ui-sref="home">Home</a>
     <span ng-show="account.isLoggedIn()">
-        <br />
-        <a ui-sref="receipts">Receipts</a> /
-        <a ui-sref="report">Report</a>
+        <a class="nav-link footer" ui-sref="receipts">Receipts</a>
+        <a class="nav-link footer" ui-sref="report">Report</a>
+        <a class="nav-link footer" ui-sref="products">Products</a>
     </span>
 
-    <span ng-show="account.isLoggedIn()">
-        <br />
-        <a ui-sref="products">Products</a>
-    </span>
+    <a class="nav-link footer" ui-sref="about">About</a>
+    <a class="nav-link footer" ng-show="!account.isLoggedIn()" ui-sref="login">Login</a>
+    <a class="nav-link footer" ng-show="account.isLoggedIn()" ui-sref="home" ng-click="account.logout()">Logout</a>
+</nav>
 
-    <div ng-show="account.isLoggedIn()">
-        <a ui-sref="profile">{{account.getUserName()}}</a>
-    </div>
+<nav class="nav nav-inline text-right">
+        <a class="nav-link footer" ng-show="account.isLoggedIn()" ui-sref="profile">{{account.getUserName()}}</a>
+</nav>
 
-</div>
 <br />
-
-<!--<p>HEADER</p>
-{{index_controller.headerMessage}}
-<br />-->
-
 <hr class="style-one" />

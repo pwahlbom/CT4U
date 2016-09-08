@@ -1,0 +1,26 @@
+﻿<div class="modal-header">
+    <h3 class="modal-title">Create Receipt</h3>
+</div>
+
+<div class="modal-body">
+    <div class="form-group">
+        <label for="purchase-date" class="col-xs-2 col-form-label">Date</label>
+        <div class="col-xs-10">
+            <input class="form-control" type="date" placeholder="purchase date" id="purchase-date">
+        </div>
+    </div>
+	<br /><br />
+
+    <div class="form-group">
+        <label for="example-text-input" class="col-xs-2 col-form-label">Text</label>
+        <div class="col-xs-10">
+            <input class="form-control" type="text" placeholder="receipt note" id="example-text-input">
+        </div>
+    </div>
+</div>
+<br />
+
+<div class="modal-footer">
+    <button class="btn btn-primary" ng-click="ReceiptAdd_modalController.ok()">Cancel</button>
+    <button class="btn btn-primary" ng-click="ReceiptAdd_modalController.ok()">Submit</button>
+</div>

@@ -9,7 +9,7 @@
         public blnShowEdit = false;
         public blnShowDelete = false;
 
-        constructor(public $http: ng.IHttpService, public $state: ng.ui.IStateService, public $stateParams: ng.ui.IStateParamsService) {
+        constructor(public $http: ng.IHttpService, public $state: ng.ui.IStateService, public $stateParams: ng.ui.IStateParamsService, public $uibModal: angular.ui.bootstrap.IModalService) {
             this.getReceipts();
         }
 
@@ -50,6 +50,15 @@
         }
 
         // MISCELLANEOUS ----------------------------------------------------------------------------------------------------
+        public showReceiptAdd_Modal() {
+            this.$uibModal.open({
+                templateUrl: '/ngApp/views/view_ReceiptAdd_modal.html',
+                controller: CT4U.Controllers.ReceiptAdd_modalController,
+                controllerAs: 'ReceiptAdd_modalController',
+                size: 'sm'
+            });
+        }
+
         public showEdit(currentReceipt) {
             this.strAction = "UPDATE";
             this.blnShowEdit = true;
@@ -80,7 +89,7 @@
             this.blnShowEdit = false;
         }
 
-        public hideDelete(){
+        public hideDelete() {
             this.blnShowDelete = false;
         }
     }

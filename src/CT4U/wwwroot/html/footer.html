@@ -1,5 +1,18 @@
 ﻿<hr class="style-one" />
-<!--<br />
-<p>FOOTER</p>
+<br />
 
-{{index_controller.footerMessage}}-->
+<nav class="nav nav-inline text-center">
+    <a class="nav-link footer" ui-sref="home">Home</a>
+    <span ng-show="account.isLoggedIn()">
+        <a class="nav-link footer" ui-sref="receipts">Receipts</a>
+        <a class="nav-link footer" ui-sref="report">Report</a>
+        <a class="nav-link footer" ui-sref="products">Products</a>
+    </span>
+
+    <a class="nav-link footer" ui-sref="about">About</a>
+    <a class="nav-link footer" ng-show="!account.isLoggedIn()" ui-sref="login">Login</a>
+    <a class="nav-link footer" ng-show="account.isLoggedIn()" ui-sref="home" ng-click="account.logout()">Logout</a>
+</nav>
+<br />
+
+<p class="text-center">© 2016 Philip Wahlbom</p>

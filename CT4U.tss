@@ -8,9 +8,6 @@
       <string>c:\users\philip\documents\sourcecontrol\ct4u\src\ct4u\wwwroot\ngapp\views\view_report.html</string>
     </ArrayOfString>
     <ArrayOfString>
-      <string>c:\users\philip\documents\sourcecontrol\ct4u\src\ct4u\wwwroot\ngapp\controllers\angc_reportcontroller.ts</string>
-    </ArrayOfString>
-    <ArrayOfString>
       <string>c:\users\philip\documents\sourcecontrol\ct4u\src\ct4u\api\apic_consumptionscontroller.cs</string>
     </ArrayOfString>
     <ArrayOfString>
@@ -20,46 +17,52 @@
       <string>c:\users\philip\documents\sourcecontrol\ct4u\src\ct4u\infrastructure\repo_consumptionrepository.cs</string>
     </ArrayOfString>
     <ArrayOfString>
-      <string>c:\users\philip\documents\sourcecontrol\ct4u\src\ct4u\wwwroot\ngapp\controllers\angc_receiptscontroller.ts</string>
+      <string>c:\users\philip\documents\sourcecontrol\ct4u\src\ct4u\services\svc_itemservice.cs</string>
+    </ArrayOfString>
+    <ArrayOfString>
+      <string>c:\users\philip\documents\sourcecontrol\ct4u\src\ct4u\models\product.cs</string>
     </ArrayOfString>
     <ArrayOfString>
       <string>c:\users\philip\documents\sourcecontrol\ct4u\src\ct4u\api\apic_receiptscontroller.cs</string>
     </ArrayOfString>
     <ArrayOfString>
-      <string>C:\Users\Philip\Documents\SourceControl\CT4U\src\CT4U\Services\svc_ReceiptService.cs</string>
+      <string>c:\users\philip\documents\sourcecontrol\ct4u\src\ct4u\models\item.cs</string>
     </ArrayOfString>
     <ArrayOfString>
-      <string>c:\users\philip\documents\sourcecontrol\ct4u\src\ct4u\infrastructure\repo_receiptrepository.cs</string>
+      <string>c:\users\philip\documents\sourcecontrol\ct4u\src\ct4u\services\svc_userservice.cs</string>
     </ArrayOfString>
     <ArrayOfString>
-      <string>c:\users\philip\documents\sourcecontrol\ct4u\src\ct4u\infrastructure\repo_genericrepositiory.cs</string>
+      <string>c:\users\philip\documents\sourcecontrol\ct4u\src\ct4u\services\svc_receiptservice.cs</string>
+    </ArrayOfString>
+    <ArrayOfString>
+      <string>c:\users\philip\documents\sourcecontrol\ct4u\src\ct4u\services\svc_productservice.cs</string>
+    </ArrayOfString>
+    <ArrayOfString>
+      <string>c:\users\philip\documents\sourcecontrol\ct4u\src\ct4u\wwwroot\ngapp\app.ts</string>
     </ArrayOfString>
     <ArrayOfString>
       <string>c:\users\philip\documents\sourcecontrol\ct4u\src\ct4u\wwwroot\ngapp\views\view_receipts.html</string>
     </ArrayOfString>
     <ArrayOfString>
-      <string>c:\users\philip\documents\sourcecontrol\ct4u\src\ct4u\wwwroot\ngapp\views\view_products.html</string>
+      <string>c:\users\philip\documents\sourcecontrol\ct4u\src\ct4u\wwwroot\ngapp\controllers\angc_receiptscontroller.ts</string>
     </ArrayOfString>
     <ArrayOfString>
-      <string>c:\users\philip\documents\sourcecontrol\ct4u\src\ct4u\wwwroot\ngapp\views\view_items.html</string>
+      <string>c:\users\philip\documents\sourcecontrol\ct4u\src\ct4u\wwwroot\ngapp\views\view_receiptadd_modal.html</string>
     </ArrayOfString>
     <ArrayOfString>
-      <string>c:\users\philip\documents\sourcecontrol\ct4u\src\ct4u\infrastructure\repo_userrepositiory.cs</string>
+      <string>c:\users\philip\documents\sourcecontrol\ct4u\src\ct4u\wwwroot\ngapp\controllers\angc_receiptadd_modalcontroller.ts</string>
     </ArrayOfString>
     <ArrayOfString>
-      <string>C:\Users\Philip\Documents\SourceControl\CT4U\src\CT4U\API\apic_ProductsController.cs</string>
+      <string>c:\users\philip\documents\sourcecontrol\ct4u\src\ct4u\views\home\index.cshtml</string>
     </ArrayOfString>
     <ArrayOfString>
-      <string>C:\Users\Philip\Documents\SourceControl\CT4U\src\CT4U\wwwroot\ngApp\controllers\angc_ProfileController.ts</string>
+      <string>C:\Users\Philip\Documents\SourceControl\CT4U\src\CT4U\wwwroot\html\footer.html</string>
     </ArrayOfString>
     <ArrayOfString>
-      <string>C:\Users\Philip\Documents\SourceControl\CT4U\src\CT4U\API\apic_UsersController.cs</string>
+      <string>c:\users\philip\documents\sourcecontrol\ct4u\src\ct4u\wwwroot\css\mystyles.css</string>
     </ArrayOfString>
     <ArrayOfString>
-      <string>C:\Users\Philip\Documents\SourceControl\CT4U\src\CT4U\Services\svc_UserService.cs</string>
-    </ArrayOfString>
-    <ArrayOfString>
-      <string>C:\Users\Philip\Documents\SourceControl\CT4U\src\CT4U\Services\svc_ItemService.cs</string>
+      <string>C:\Users\Philip\Documents\SourceControl\CT4U\src\CT4U\wwwroot\html\header.html</string>
     </ArrayOfString>
   </ArrayOfArrayOfString>
 </ArrayOfArrayOfArrayOfString>

@@ -30,6 +30,12 @@ namespace CT4U {
                 controller: CT4U.Controllers.ReceiptsController,
                 controllerAs: 'receipts_controller'
             })
+            .state('receiptadd_modal', {
+                url: '/receiptadd_modal',
+                templateUrl: '/ngApp/views/view_ReceiptAdd_modal.html',
+                controller: CT4U.Controllers.ReceiptsController,
+                controllerAs: 'receipts_controller'
+            })
             .state('products', {
                 url: '/products',
                 templateUrl: '/ngApp/views/view_Products.html',

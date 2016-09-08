@@ -16,6 +16,7 @@
 /// <reference path="ngapp/controllers/angc_itemscontroller.js" />
 /// <reference path="ngapp/controllers/angc_productscontroller.js" />
 /// <reference path="ngapp/controllers/angc_profilecontroller.js" />
+/// <reference path="ngapp/controllers/angc_receiptadd_modalcontroller.js" />
 /// <reference path="ngapp/controllers/angc_receiptscontroller.js" />
 /// <reference path="ngapp/controllers/angc_reportcontroller.js" />
 /// <reference path="ngapp/services/accountservice.js" />

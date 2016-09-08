@@ -1,4 +1,13 @@
-﻿hr.style-one {
+﻿a.footer{
+  padding-left:20px;
+  padding-right:20px;
+}
+
+.keeptogether {
+    display: inline-block;
+}
+
+hr.style-one {
     border: 0;
     height: 1px;
     background: #333;
@@ -53,8 +62,4 @@ hr.style18:before {
   border-color: #8c8b8b; 
   border-width: 0 0 1px 0; 
   border-radius: 20px; 
-}
-
-.keeptogether {
-    display: inline-block;
 }

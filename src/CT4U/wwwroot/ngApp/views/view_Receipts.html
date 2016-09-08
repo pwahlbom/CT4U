@@ -1,11 +1,13 @@
-﻿<h2>Receipts</h2>
+﻿<h2 class="keeptogether">Receipts</h2>
+<button class="btn" ng-click="receipts_controller.showReceiptAdd_Modal()">ADD</button>
 <!--<p>
     {{receipts_controller.message}}
 </p>-->
 <br />
 
 <!-- CREATE ------------------------------------------------------------------------------------------------------>
-<h3>CREATE</h3>
+<!--<h3>CREATE</h3>
+
 <form ng-submit="receipts_controller.addReceipt(addReceipt)">
     <table class="table table-striped">
         <tr>
@@ -25,10 +27,10 @@
             </td>
         </tr>
     </table>
-</form>
+</form>-->
 
 <!-- READ ------------------------------------------------------------------------------------------------------>
-<h3>READ</h3>
+<!--<h3>READ</h3>-->
 <table class="table table-striped">
     <tr>
         <th>Purchase Date</th>
@@ -42,7 +44,7 @@
         <td>{{receipt.note}}</td>
         <td><button ng-click="receipts_controller.showEdit(receipt)">Edit</button></td>
         <td><button ng-click="receipts_controller.showDelete(receipt)">Delete</button></td>
-        <td><a ui-sref="items({receiptid: receipt.id})"> >>> </a></td>
+        <td><a ui-sref="items({receiptid: receipt.id})"> >>> </a></td>       
     </tr>
 </table>
 
