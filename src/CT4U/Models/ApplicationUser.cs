@@ -9,6 +9,13 @@ namespace CT4U.Models
     // Add profile data for application users by adding properties to the ApplicationUser class
     public class ApplicationUser : IdentityUser
     {
+        // Primary key
+        // inerited from IdentityUser
+
+        // Foreign keys
+        // none
+
+        // Fields
         public string FirstName { get; set; }
         public string LastName { get; set; }
         public string Nickname { get; set; }
@@ -25,5 +32,9 @@ namespace CT4U.Models
         public string PhysicalCity { get; set; }
         public string PhysicalState { get; set; }
         public string PhysicalZip { get; set; }
+
+        // Foreign collections
+        public ICollection<Receipt> Receipts { get; set; }
+        public ICollection<Consumption> Consumptions { get; set; }
     }
 }

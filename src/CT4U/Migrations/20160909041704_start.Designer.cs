@@ -8,7 +8,7 @@ using CT4U.Data;
 namespace CT4U.Migrations
 {
     [DbContext(typeof(ApplicationDbContext))]
-    [Migration("20160905175542_start")]
+    [Migration("20160909041704_start")]
     partial class start
     {
         protected override void BuildTargetModel(ModelBuilder modelBuilder)
@@ -288,12 +288,12 @@ namespace CT4U.Migrations
             modelBuilder.Entity("CT4U.Models.Consumption", b =>
                 {
                     b.HasOne("CT4U.Models.ApplicationUser", "ApplicationUser")
-                        .WithMany()
+                        .WithMany("Consumptions")
                         .HasForeignKey("ApplicationUserId")
                         .OnDelete(DeleteBehavior.Cascade);
 
                     b.HasOne("CT4U.Models.Product", "Product")
-                        .WithMany()
+                        .WithMany("Consumptions")
                         .HasForeignKey("ProductId")
                         .OnDelete(DeleteBehavior.Cascade);
                 });
@@ -314,7 +314,7 @@ namespace CT4U.Migrations
             modelBuilder.Entity("CT4U.Models.Receipt", b =>
                 {
                     b.HasOne("CT4U.Models.ApplicationUser", "ApplicationUser")
-                        .WithMany()
+                        .WithMany("Receipts")
                         .HasForeignKey("ApplicationUserId");
                 });
 

@@ -6,13 +6,19 @@ namespace CT4U.Models
 {
     public class Receipt
     {
-        [ForeignKey("ApplicationUserId")]
-        public ApplicationUser ApplicationUser { get; set; }
-        public string ApplicationUserId { get; set; }
-
+        // Primary key
         public int Id { get; set; }
+       
+        // Foreign keys
+        [ForeignKey("ApplicationUserId")]
+        public string ApplicationUserId { get; set; }
+        public ApplicationUser ApplicationUser { get; set; }
+
+        // Fields
         public DateTime PurchaseDate { get; set; }
         public string Note{ get; set; }
+
+        // Foreign collections
         public ICollection<Item> Items { get; set; }
     }
 }

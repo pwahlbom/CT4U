@@ -8,14 +8,18 @@ namespace CT4U.Models
 {
     public class Consumption
     {
+        // Primary key
+        // Foreign keys
+        // Junction table with a compound primary key
         [ForeignKey("ApplicationUserId")]
-        public ApplicationUser ApplicationUser { get; set; }
         public string ApplicationUserId { get; set; }
+        public ApplicationUser ApplicationUser { get; set; }
 
         [ForeignKey("ProductId")]
-        public Product Product { get; set; }
         public int ProductId { get; set; }
+        public Product Product { get; set; }
 
+        // Fields
         public decimal UnitsPurchased { get; set; }
         public decimal UnitsConsumed { get; set; }
         public decimal ConsumptionDays { get; set; }
@@ -25,6 +29,9 @@ namespace CT4U.Models
         public decimal LastPurchaseUnits { get; set; }
         public DateTime EmptyDate { get; set; }
         public decimal DaysRemaining { get; set; }
+
+        // Foreign collections
+        // none
     }
 
     public class ConsumptionMore : Consumption

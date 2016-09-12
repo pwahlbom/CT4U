@@ -287,12 +287,12 @@ namespace CT4U.Migrations
             modelBuilder.Entity("CT4U.Models.Consumption", b =>
                 {
                     b.HasOne("CT4U.Models.ApplicationUser", "ApplicationUser")
-                        .WithMany()
+                        .WithMany("Consumptions")
                         .HasForeignKey("ApplicationUserId")
                         .OnDelete(DeleteBehavior.Cascade);
 
                     b.HasOne("CT4U.Models.Product", "Product")
-                        .WithMany()
+                        .WithMany("Consumptions")
                         .HasForeignKey("ProductId")
                         .OnDelete(DeleteBehavior.Cascade);
                 });
@@ -313,7 +313,7 @@ namespace CT4U.Migrations
             modelBuilder.Entity("CT4U.Models.Receipt", b =>
                 {
                     b.HasOne("CT4U.Models.ApplicationUser", "ApplicationUser")
-                        .WithMany()
+                        .WithMany("Receipts")
                         .HasForeignKey("ApplicationUserId");
                 });
 
