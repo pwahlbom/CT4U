@@ -2,7 +2,16 @@
 <ArrayOfArrayOfArrayOfString xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xsd="http://www.w3.org/2001/XMLSchema">
   <ArrayOfArrayOfString>
     <ArrayOfString>
-      <string>CT4U (loading...)</string>
+      <string>C:\Users\Philip\OneDrive\Documents\SourceControl\CT4U\src\CT4U\wwwroot\ngApp\views\view_Items.html</string>
+    </ArrayOfString>
+    <ArrayOfString>
+      <string>c:\users\philip\onedrive\documents\sourcecontrol\ct4u\src\ct4u\wwwroot\ngapp\controllers\angc_itemscontroller.ts</string>
+    </ArrayOfString>
+    <ArrayOfString>
+      <string>c:\users\philip\onedrive\documents\sourcecontrol\ct4u\src\ct4u\api\apic_itemscontroller.cs</string>
+    </ArrayOfString>
+    <ArrayOfString>
+      <string>c:\users\philip\onedrive\documents\sourcecontrol\ct4u\src\ct4u\services\svc_itemservice.cs</string>
     </ArrayOfString>
   </ArrayOfArrayOfString>
 </ArrayOfArrayOfArrayOfString>
